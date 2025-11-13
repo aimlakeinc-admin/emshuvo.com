@@ -177,7 +177,7 @@ export default function Hero() {
             </div>
             <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-md rounded-xl shadow-xl p-6 border border-purple-400/50 hover:border-purple-300 transition-all duration-300 hover:shadow-purple-500/20 hover:-translate-y-1">
               <div className="text-4xl font-display font-bold text-purple-300 mb-2">5+</div>
-              <div className="text-gray-200 font-medium">Companies Served</div>
+              <div className="text-gray-200 font-medium">Companies Founded & Served</div>
             </div>
           </div>
         </div>
