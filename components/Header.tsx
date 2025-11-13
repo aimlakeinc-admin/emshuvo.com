@@ -31,7 +31,7 @@ export default function Header() {
           isScrolled
             ? "w-full max-w-6xl h-20 px-8"
             : "w-auto h-16 px-6"
-        }`}
+        } ${isMobileMenuOpen ? "overflow-visible" : ""}`}
       >
         {/* Modern Glass Background */}
         <div
@@ -102,23 +102,32 @@ export default function Header() {
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 mt-2 rounded-2xl backdrop-blur-xl border py-4 px-4"
-              style={{
-                background: "linear-gradient(135deg, rgba(5, 5, 15, 0.8) 0%, rgba(34, 211, 238, 0.1) 50%, rgba(168, 85, 247, 0.1) 100%)",
-                borderColor: "rgba(34, 211, 238, 0.3)",
-              }}
-            >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block py-3 px-4 text-gray-200 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-300 hover:via-purple-300 hover:to-pink-300 font-bold transition-all rounded-lg hover:bg-gradient-to-r hover:from-cyan-500/10 hover:via-purple-500/10 hover:to-pink-500/10"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            <>
+              {/* Backdrop overlay */}
+              <div 
+                className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[55]"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              
+              {/* Mobile Menu */}
+              <div className="md:hidden fixed top-20 left-4 right-4 rounded-2xl backdrop-blur-xl border shadow-2xl py-4 px-4 z-[60] animate-fade-in-up"
+                style={{
+                  background: "linear-gradient(135deg, rgba(5, 5, 15, 0.95) 0%, rgba(34, 211, 238, 0.15) 50%, rgba(168, 85, 247, 0.15) 100%)",
+                  borderColor: "rgba(34, 211, 238, 0.4)",
+                }}
+              >
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block py-3 px-4 text-gray-200 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-300 hover:via-purple-300 hover:to-pink-300 font-bold transition-all rounded-lg hover:bg-gradient-to-r hover:from-cyan-500/10 hover:via-purple-500/10 hover:to-pink-500/10"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </>
           )}
       </nav>
     </header>
