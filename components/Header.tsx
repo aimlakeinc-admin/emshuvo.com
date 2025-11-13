@@ -27,19 +27,27 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-4 px-4">
       <nav
-        className={`relative transition-all duration-500 ease-in-out mx-auto ${
+        className={`relative mx-auto transition-all duration-700 ease-out ${
           isScrolled
             ? "w-full max-w-4xl h-20 px-8"
             : "w-auto h-16 px-6"
         } ${isMobileMenuOpen ? "overflow-visible" : ""}`}
+        style={{
+          transitionProperty: 'width, height, padding',
+          willChange: 'width, height, padding',
+        }}
       >
         {/* Modern Glass Background */}
         <div
-          className={`absolute inset-0 rounded-full transition-all duration-500 ${
+          className={`absolute inset-0 rounded-full transition-all duration-700 ease-out ${
             isScrolled
               ? "backdrop-blur-xl border shadow-lg"
               : "backdrop-blur-lg border shadow-md"
           }`}
+          style={{
+            transitionProperty: 'backdrop-filter, border-color, box-shadow',
+            willChange: 'backdrop-filter, border-color, box-shadow',
+          }}
           style={{
             background: isScrolled
               ? "linear-gradient(135deg, rgba(5, 5, 15, 0.7) 0%, rgba(34, 211, 238, 0.1) 50%, rgba(168, 85, 247, 0.1) 100%)"
