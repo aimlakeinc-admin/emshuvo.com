@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const FULL_TEXT = "I specialize in designing secure, scalable, and AI-powered infrastructures that merge technology, finance, and automation. Based in Toronto, Ontario, Canada, I lead cloud and cybersecurity projects that help businesses innovate with confidence.";
+const FULL_TEXT = "I specialize in Cloud Security, SysAdmin, AI, Business Growth & Digitalization Expertise. Based in Toronto, Ontario, Canada, I design secure, scalable, and AI-powered infrastructures that merge technology, finance, and automation to help businesses innovate with confidence.";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
