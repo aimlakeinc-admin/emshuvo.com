@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Evan Mahmud Shuvo",
     images: [
       {
-        url: "/EmShuvo.png",
+        url: "https://emshuvo.com/EmShuvo.png",
         width: 1200,
         height: 630,
         alt: "Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Evan Mahmud Shuvo | Cloud Security Engineer & Full-Stack Developer",
     description: "Cloud Security, System Administration & AI Automation — building secure systems that scale.",
-    images: ["/EmShuvo.png"],
+    images: ["https://emshuvo.com/EmShuvo.png"],
   },
   robots: {
     index: true,
@@ -74,6 +74,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Open Graph Meta Tags for WhatsApp and Social Media */}
+        <meta property="og:image" content="https://emshuvo.com/EmShuvo.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content="Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:image" content="https://emshuvo.com/EmShuvo.png" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -82,6 +92,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Evan Mahmud Shuvo",
               jobTitle: ["Cloud Security Engineer", "System Administrator", "Full-Stack Developer"],
+              image: "https://emshuvo.com/EmShuvo.png",
               worksFor: [
                 {
                   "@type": "Organization",
