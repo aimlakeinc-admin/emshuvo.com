@@ -12,6 +12,7 @@ const ptSansNarrow = PT_Sans_Narrow({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://emshuvo.com"),
   title: "Evan Mahmud Shuvo | Cloud Security Engineer & Full-Stack Developer",
   description: "Cloud Security Engineer, System Administrator, and Full-Stack Developer based in Toronto, Ontario, Canada. CEO of Aimlake Inc. & Capitalizedmoney Inc. Specializing in secure, scalable, and AI-powered infrastructures.",
   keywords: [
@@ -37,10 +38,11 @@ export const metadata: Metadata = {
     siteName: "Evan Mahmud Shuvo",
     images: [
       {
-        url: "https://emshuvo.com/EmShuvo.png",
+        url: "/EmShuvo.png",
         width: 1200,
         height: 630,
         alt: "Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer",
+        type: "image/png",
       },
     ],
   },
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Evan Mahmud Shuvo | Cloud Security Engineer & Full-Stack Developer",
     description: "Cloud Security, System Administration & AI Automation — building secure systems that scale.",
-    images: ["https://emshuvo.com/EmShuvo.png"],
+    images: ["/EmShuvo.png"],
   },
   robots: {
     index: true,
@@ -74,8 +76,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Open Graph Meta Tags for WhatsApp and Social Media */}
+        {/* Additional Open Graph Meta Tags for WhatsApp compatibility */}
         <meta property="og:image" content="https://emshuvo.com/EmShuvo.png" />
+        <meta property="og:image:secure_url" content="https://emshuvo.com/EmShuvo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
@@ -83,6 +86,7 @@ export default function RootLayout({
         
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:image" content="https://emshuvo.com/EmShuvo.png" />
+        <meta name="twitter:image:src" content="https://emshuvo.com/EmShuvo.png" />
         
         <script
           type="application/ld+json"
