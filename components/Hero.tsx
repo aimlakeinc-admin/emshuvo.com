@@ -124,7 +124,7 @@ export default function Hero() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Cloud Security, System Administration & AI Automation
+                Cloud Security, System Administration, AI Automation & Business Digitalization Expertise
               </span>
               
               {/* Glitch overlay effect - subtle */}
@@ -137,7 +137,7 @@ export default function Hero() {
                 }}
                 aria-hidden="true"
               >
-                Cloud Security, System Administration & AI Automation
+                Cloud Security, System Administration, AI Automation & Business Digitalization Expertise
               </span>
               
               {/* Cybersecurity scan effect */}
