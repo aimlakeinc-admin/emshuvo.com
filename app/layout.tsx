@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Evan Mahmud Shuvo",
     images: [
       {
-        url: "/EmShuvo.png",
+        url: "https://emshuvo.com/EmShuvo.png",
         width: 1200,
         height: 630,
         alt: "Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Evan Mahmud Shuvo | Cloud Security Engineer & Full-Stack Developer",
     description: "Cloud Security, System Administration & AI Automation — building secure systems that scale.",
-    images: ["/EmShuvo.png"],
+    images: ["https://emshuvo.com/EmShuvo.png"],
   },
   robots: {
     index: true,
