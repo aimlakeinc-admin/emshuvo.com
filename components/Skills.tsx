@@ -49,10 +49,19 @@ const skillCategories = [
   {
     title: "Programming Languages",
     items: [
-      "HTML | CSS | JavaScript | TypeScript",
-      "Python 3 | C++",
-      "MySQL | PostgreSQL | MongoDB",
-      "Node.js | React",
+      "HTML | CSS | JavaScript | Tailwind CSS",
+      "Python 3",
+      "C++",
+      "MySQL",
+      "Node.js | PostgreSQL | MongoDB",
+      "Next.js 14 (React framework)",
+      "React 18 (UI library)",
+      "React Router DOM - Routing",
+      "Tailwind CSS (utility-first CSS)",
+      "TypeScript (type system)",
+      "Vite - Build tool and dev server",
+      "Lucide React - Icons",
+      "OpenPyXL (Python) - File Processing",
     ],
   },
 ];
