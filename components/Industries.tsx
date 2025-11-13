@@ -61,6 +61,87 @@ const industryCategories = [
       "Local Enterprises",
     ],
   },
+  {
+    title: "Education & Training",
+    items: [
+      "Schools & Colleges",
+      "Online Learning Platforms (EdTech)",
+      "Coaching & Tutoring Centers",
+      "Corporate Training Providers",
+    ],
+  },
+  {
+    title: "Real Estate & Construction",
+    items: [
+      "Real Estate Agencies",
+      "Property Developers",
+      "Architecture & Interior Design Studios",
+      "Construction & Contracting Firms",
+    ],
+  },
+  {
+    title: "Logistics & Supply Chain",
+    items: [
+      "Freight & Shipping Companies",
+      "Warehousing & Distribution",
+      "Courier & Delivery Services",
+      "Supply Chain Management Solutions",
+    ],
+  },
+  {
+    title: "Media, Marketing & Communications",
+    items: [
+      "Advertising Agencies",
+      "PR & Media Firms",
+      "Influencer Marketing & Creators",
+      "Video Production & Photography Studios",
+    ],
+  },
+  {
+    title: "Government & Non-Profit",
+    items: [
+      "NGOs & Charities",
+      "Public Sector Organizations",
+      "Educational Institutions (Public)",
+      "International Development Agencies",
+    ],
+  },
+  {
+    title: "Energy & Environment",
+    items: [
+      "Renewable Energy Startups",
+      "Oil, Gas & Utilities",
+      "Environmental Consulting Firms",
+      "Waste Management Services",
+    ],
+  },
+  {
+    title: "Fashion & Lifestyle",
+    items: [
+      "Apparel Brands",
+      "Beauty & Cosmetics",
+      "Fitness & Sports Brands",
+      "Luxury & Lifestyle Retail",
+    ],
+  },
+  {
+    title: "Entertainment & Events",
+    items: [
+      "Event Management Companies",
+      "Music & Film Production",
+      "Theaters & Venues",
+      "Gaming & Esports",
+    ],
+  },
+  {
+    title: "Manufacturing & Industrial",
+    items: [
+      "Manufacturing Plants",
+      "Industrial Equipment Suppliers",
+      "Automation & Robotics",
+      "3D Printing & Product Design",
+    ],
+  },
 ];
 
 export default function Industries() {
@@ -167,6 +248,15 @@ export default function Industries() {
               { bg: 'from-orange-500/20 to-amber-500/20', border: 'border-orange-400/50', text: 'text-orange-300', accent: 'from-orange-400 to-amber-400', bullet: 'text-orange-400' },
               { bg: 'from-pink-500/20 to-rose-500/20', border: 'border-pink-400/50', text: 'text-pink-300', accent: 'from-pink-400 to-rose-400', bullet: 'text-pink-400' },
               { bg: 'from-indigo-500/20 to-purple-500/20', border: 'border-indigo-400/50', text: 'text-indigo-300', accent: 'from-indigo-400 to-purple-400', bullet: 'text-indigo-400' },
+              { bg: 'from-teal-500/20 to-cyan-500/20', border: 'border-teal-400/50', text: 'text-teal-300', accent: 'from-teal-400 to-cyan-400', bullet: 'text-teal-400' },
+              { bg: 'from-yellow-500/20 to-orange-500/20', border: 'border-yellow-400/50', text: 'text-yellow-300', accent: 'from-yellow-400 to-orange-400', bullet: 'text-yellow-400' },
+              { bg: 'from-red-500/20 to-pink-500/20', border: 'border-red-400/50', text: 'text-red-300', accent: 'from-red-400 to-pink-400', bullet: 'text-red-400' },
+              { bg: 'from-violet-500/20 to-purple-500/20', border: 'border-violet-400/50', text: 'text-violet-300', accent: 'from-violet-400 to-purple-400', bullet: 'text-violet-400' },
+              { bg: 'from-emerald-500/20 to-green-500/20', border: 'border-emerald-400/50', text: 'text-emerald-300', accent: 'from-emerald-400 to-green-400', bullet: 'text-emerald-400' },
+              { bg: 'from-sky-500/20 to-blue-500/20', border: 'border-sky-400/50', text: 'text-sky-300', accent: 'from-sky-400 to-blue-400', bullet: 'text-sky-400' },
+              { bg: 'from-fuchsia-500/20 to-pink-500/20', border: 'border-fuchsia-400/50', text: 'text-fuchsia-300', accent: 'from-fuchsia-400 to-pink-400', bullet: 'text-fuchsia-400' },
+              { bg: 'from-lime-500/20 to-green-500/20', border: 'border-lime-400/50', text: 'text-lime-300', accent: 'from-lime-400 to-green-400', bullet: 'text-lime-400' },
+              { bg: 'from-amber-500/20 to-yellow-500/20', border: 'border-amber-400/50', text: 'text-amber-300', accent: 'from-amber-400 to-yellow-400', bullet: 'text-amber-400' },
             ];
             const colorScheme = colors[index % colors.length];
             return (
