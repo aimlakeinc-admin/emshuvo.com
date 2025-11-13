@@ -45,10 +45,6 @@ export default function Header() {
               : "backdrop-blur-lg border shadow-md"
           }`}
           style={{
-            transitionProperty: 'backdrop-filter, border-color, box-shadow',
-            willChange: 'backdrop-filter, border-color, box-shadow',
-          }}
-          style={{
             background: isScrolled
               ? "linear-gradient(135deg, rgba(5, 5, 15, 0.7) 0%, rgba(34, 211, 238, 0.1) 50%, rgba(168, 85, 247, 0.1) 100%)"
               : "linear-gradient(135deg, rgba(5, 5, 15, 0.6) 0%, rgba(34, 211, 238, 0.08) 50%, rgba(168, 85, 247, 0.08) 100%)",
@@ -56,6 +52,8 @@ export default function Header() {
             boxShadow: isScrolled
               ? "0 8px 32px 0 rgba(34, 211, 238, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)"
               : "0 4px 16px 0 rgba(34, 211, 238, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.05)",
+            transitionProperty: 'backdrop-filter, border-color, box-shadow, background',
+            willChange: 'backdrop-filter, border-color, box-shadow, background',
           }}
         />
 
