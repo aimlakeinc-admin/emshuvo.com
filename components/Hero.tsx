@@ -155,7 +155,7 @@ export default function Hero() {
           </div>
           
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Building secure systems that scale.
+            Building secure systems that scales like never before.
           </p>
           
           <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
