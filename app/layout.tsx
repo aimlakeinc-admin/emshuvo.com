@@ -35,11 +35,20 @@ export const metadata: Metadata = {
     title: "Evan Mahmud Shuvo | Cloud Security Engineer & Full-Stack Developer",
     description: "Cloud Security, System Administration & AI Automation — building secure systems that scale.",
     siteName: "Evan Mahmud Shuvo",
+    images: [
+      {
+        url: "/EmShuvo.png",
+        width: 1200,
+        height: 630,
+        alt: "Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Evan Mahmud Shuvo | Cloud Security Engineer & Full-Stack Developer",
     description: "Cloud Security, System Administration & AI Automation — building secure systems that scale.",
+    images: ["/EmShuvo.png"],
   },
   robots: {
     index: true,
