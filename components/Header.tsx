@@ -27,9 +27,9 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-4 px-4">
       <nav
-        className={`relative transition-all duration-500 ease-in-out ${
+        className={`relative transition-all duration-500 ease-in-out mx-auto ${
           isScrolled
-            ? "w-full max-w-6xl h-20 px-8"
+            ? "w-full max-w-4xl h-20 px-8"
             : "w-auto h-16 px-6"
         } ${isMobileMenuOpen ? "overflow-visible" : ""}`}
       >
