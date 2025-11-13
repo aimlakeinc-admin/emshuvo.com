@@ -98,15 +98,6 @@ const industryCategories = [
     ],
   },
   {
-    title: "Government & Non-Profit",
-    items: [
-      "NGOs & Charities",
-      "Public Sector Organizations",
-      "Educational Institutions (Public)",
-      "International Development Agencies",
-    ],
-  },
-  {
     title: "Energy & Environment",
     items: [
       "Renewable Energy Startups",
@@ -256,7 +247,6 @@ export default function Industries() {
               { bg: 'from-sky-500/20 to-blue-500/20', border: 'border-sky-400/50', text: 'text-sky-300', accent: 'from-sky-400 to-blue-400', bullet: 'text-sky-400' },
               { bg: 'from-fuchsia-500/20 to-pink-500/20', border: 'border-fuchsia-400/50', text: 'text-fuchsia-300', accent: 'from-fuchsia-400 to-pink-400', bullet: 'text-fuchsia-400' },
               { bg: 'from-lime-500/20 to-green-500/20', border: 'border-lime-400/50', text: 'text-lime-300', accent: 'from-lime-400 to-green-400', bullet: 'text-lime-400' },
-              { bg: 'from-amber-500/20 to-yellow-500/20', border: 'border-amber-400/50', text: 'text-amber-300', accent: 'from-amber-400 to-yellow-400', bullet: 'text-amber-400' },
             ];
             const colorScheme = colors[index % colors.length];
             return (
