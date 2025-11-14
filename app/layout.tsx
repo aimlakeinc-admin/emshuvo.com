@@ -38,11 +38,11 @@ export const metadata: Metadata = {
     siteName: "Evan Mahmud Shuvo",
     images: [
       {
-        url: "https://emshuvo.com/og-image.jpg",
+        url: "https://emshuvo.com/EmShuvo.png",
         width: 1200,
         height: 630,
         alt: "Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Evan Mahmud Shuvo – Cybersecurity & Tech Entrepreneur",
     description: "Founder of Aimlake Inc. | Cybersecurity | Web & App Development | Cloud Tech | Toronto.",
-    images: ["https://emshuvo.com/og-image.jpg"],
+    images: ["https://emshuvo.com/EmShuvo.png"],
   },
   robots: {
     index: true,
@@ -79,11 +79,11 @@ export default function RootLayout({
         {/* Additional Open Graph Meta Tags for WhatsApp compatibility */}
         <meta property="og:title" content="Evan Mahmud Shuvo – Cybersecurity & Tech Entrepreneur" />
         <meta property="og:description" content="Founder of Aimlake Inc. | Cybersecurity | Web & App Development | Automotive Tech | Cloud Solutions | Toronto." />
-        <meta property="og:image" content="https://emshuvo.com/og-image.jpg" />
-        <meta property="og:image:secure_url" content="https://emshuvo.com/og-image.jpg" />
+        <meta property="og:image" content="https://emshuvo.com/EmShuvo.png" />
+        <meta property="og:image:secure_url" content="https://emshuvo.com/EmShuvo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:alt" content="Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer" />
         <meta property="og:url" content="https://emshuvo.com/" />
         <meta property="og:type" content="website" />
@@ -92,8 +92,8 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Evan Mahmud Shuvo – Cybersecurity & Tech Entrepreneur" />
         <meta name="twitter:description" content="Founder of Aimlake Inc. | Cybersecurity | Web & App Development | Cloud Tech | Toronto." />
-        <meta name="twitter:image" content="https://emshuvo.com/og-image.jpg" />
-        <meta name="twitter:image:src" content="https://emshuvo.com/og-image.jpg" />
+        <meta name="twitter:image" content="https://emshuvo.com/EmShuvo.png" />
+        <meta name="twitter:image:src" content="https://emshuvo.com/EmShuvo.png" />
         
         <script
           type="application/ld+json"
@@ -103,7 +103,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Evan Mahmud Shuvo",
               jobTitle: ["Cloud Security Engineer", "System Administrator", "Full-Stack Developer"],
-              image: "https://emshuvo.com/og-image.jpg",
+              image: "https://emshuvo.com/EmShuvo.png",
               worksFor: [
                 {
                   "@type": "Organization",
