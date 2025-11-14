@@ -13,7 +13,7 @@ const ptSansNarrow = PT_Sans_Narrow({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://emshuvo.com"),
-  title: "Evan Mahmud Shuvo | Cloud Security, System Administration & AI Automation",
+  title: "Evan Mahmud Shuvo | Cloud Security, SysAdmin, AI, Business Growth & Digitalization Expertise",
   description: "Cloud Security Engineer, System Administrator, and Full-Stack Developer based in Toronto, Ontario, Canada. CEO of Aimlake Inc. & Capitalizedmoney Inc. Specializing in secure, scalable, and AI-powered infrastructures.",
   keywords: [
     "Cloud Security Engineer",
