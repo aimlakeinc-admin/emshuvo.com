@@ -15,7 +15,7 @@ export default function Expertise() {
       id="expertise"
       title="expertise"
       command="cat expertise.conf"
-      kernelInfo={false}
+      asciiTitle="expertise"
     >
       <div className="space-y-4">
         {expertiseAreas.map((area, i) => (

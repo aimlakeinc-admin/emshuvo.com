@@ -24,7 +24,7 @@ export default function Industries() {
       id="industries"
       title="industries_served"
       command="cat /var/log/industries_served.log"
-      kernelInfo={false}
+      asciiTitle="industries_served"
     >
       <p className="text-green-400/80 mb-4">
         Services across diverse industries — secure, scalable solutions tailored to each sector.

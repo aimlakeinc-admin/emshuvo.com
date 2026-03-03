@@ -29,6 +29,7 @@ export default function Header() {
     { href: "#companies", label: "03_COMPANIES" },
     { href: "#certifications", label: "04_CERTS" },
     { href: "#industries", label: "05_INDUSTRIES" },
+    { href: "#contact", label: "06_CONTACT" },
   ];
 
   return (

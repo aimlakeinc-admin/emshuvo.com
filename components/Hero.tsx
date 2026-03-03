@@ -73,9 +73,12 @@ export default function Hero() {
             <span>root@emshuvo.com:~$</span> ./execute_profile.sh
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-hacker-green mb-6 animate-glitch border-b border-hacker-green/50 pb-4 inline-block pr-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-hacker-green mb-4 animate-glitch border-b border-hacker-green/50 pb-4 inline-block pr-6">
             &gt; EVAN_MAHMUD_SHUVO
           </h1>
+          <p className="text-hacker-cyan/70 text-xs md:text-sm mb-6 tracking-[0.3em] masterpiece-tagline">
+            CREATIVITY  ·  PRODUCTIVITY  ·  ENGINEERING
+          </p>
 
           <div className="relative mb-6">
             <div className="text-xl md:text-2xl font-bold text-hacker-cyan bg-hacker-green/5 border border-hacker-green/30 p-4 shadow-[0_0_15px_rgba(0,255,65,0.1)]">
@@ -100,17 +103,17 @@ export default function Hero() {
 
           {/* Quick Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
-            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden">
+            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,65,0.2)] animate-fade-in-up" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
               <div className="absolute top-0 right-0 p-1 text-xs text-hacker-green/40 group-hover:text-hacker-dark/40">SYS.VAR.01</div>
               <div className="text-4xl font-bold mb-2 text-hacker-cyan group-hover:text-hacker-dark group-hover:animate-glitch">&gt; 5+</div>
               <div className="text-hacker-green font-medium group-hover:text-hacker-dark">&gt; YEARS_EXP_</div>
             </div>
-            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden">
+            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,65,0.2)] animate-fade-in-up" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
               <div className="absolute top-0 right-0 p-1 text-xs text-hacker-green/40 group-hover:text-hacker-dark/40">SYS.VAR.02</div>
               <div className="text-4xl font-bold mb-2 text-hacker-cyan group-hover:text-hacker-dark group-hover:animate-glitch">&gt; 50+</div>
               <div className="text-hacker-green font-medium group-hover:text-hacker-dark">&gt; DEPLOYMENTS_</div>
             </div>
-            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden">
+            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,65,0.2)] animate-fade-in-up" style={{ animationDelay: "0.3s", animationFillMode: "both" }}>
               <div className="absolute top-0 right-0 p-1 text-xs text-hacker-green/40 group-hover:text-hacker-dark/40">SYS.VAR.03</div>
               <div className="text-4xl font-bold mb-2 text-hacker-cyan group-hover:text-hacker-dark group-hover:animate-glitch">&gt; 5+</div>
               <div className="text-hacker-green font-medium group-hover:text-hacker-dark">&gt; ORGS_INITIALIZED_</div>

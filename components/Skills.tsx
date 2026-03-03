@@ -33,7 +33,7 @@ export default function Skills() {
       id="certifications"
       title="skills"
       command="dpkg -l | grep -E 'cert|skill' || cat /var/lib/skills 2>/dev/null"
-      kernelInfo={false}
+      asciiTitle="skills_&_certifications"
     >
       <div className="space-y-4">
         {skillCategories.map((cat, i) => (

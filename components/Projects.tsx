@@ -30,7 +30,7 @@ export default function Projects() {
       id="companies"
       title="companies"
       command="ls -la /opt/ventures/"
-      kernelInfo={false}
+      asciiTitle="companies"
     >
       <div className="space-y-5">
         {companies.map((c, i) => (

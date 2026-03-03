@@ -30,7 +30,7 @@ export default function Leadership() {
       id="leadership"
       title="leadership"
       command="cat /etc/leadership 2>/dev/null || echo '--- companies ---'"
-      kernelInfo={false}
+      asciiTitle="leadership"
     >
       <div className="space-y-6">
         {companies.map((company, i) => (

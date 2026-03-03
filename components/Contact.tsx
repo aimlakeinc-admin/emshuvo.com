@@ -1,58 +1,33 @@
+"use client";
+
+import TerminalWindow from "./TerminalWindow";
+
 export default function Contact() {
   return (
-    <section
+    <TerminalWindow
       id="contact"
-      className="py-6 relative overflow-hidden"
+      title="contact"
+      command="echo 'Open to collaborations · Secure · Scalable · Future-ready'"
+      asciiTitle="contact"
     >
-      {/* Cyberpunk grid overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(cyan 1px, transparent 1px),
-            linear-gradient(90deg, cyan 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 tracking-tight">
-            Contact
-          </h2>
-          
-          <p className="text-xl text-gray-300 mb-6 leading-relaxed">
-            I&apos;m open to new collaborations, partnerships, and opportunities.
-            Let&apos;s build something secure, scalable, and future-ready.
-          </p>
-          
-          <div className="space-y-6">
-            <div className="bg-gray-900/70 backdrop-blur-sm rounded-lg p-6 border border-gray-700/50 hover:border-gray-600 transition-all">
-              <h3 className="text-xl font-display font-semibold mb-4 tracking-tight text-cyan-300">Email</h3>
-              <div className="space-y-2">
-                <a
-                  href="mailto:emshuvo@aimlake.com"
-                  className="block text-cyan-300 hover:text-cyan-200 transition-colors"
-                >
-                  emshuvo@aimlake.com
-                </a>
-                <a
-                  href="mailto:emshuvo@capitalizedmoney.com"
-                  className="block text-cyan-300 hover:text-cyan-200 transition-colors"
-                >
-                  emshuvo@capitalizedmoney.com
-                </a>
-              </div>
-            </div>
-            
-            <div className="bg-gray-900/70 backdrop-blur-sm rounded-lg p-6 border border-gray-700/50 hover:border-gray-600 transition-all">
-              <h3 className="text-xl font-display font-semibold mb-2 tracking-tight text-cyan-300">Location</h3>
-              <p className="text-gray-300">Toronto, Ontario, Canada</p>
-            </div>
-          </div>
+      <p className="text-hacker-green/90 mb-4">
+        I&apos;m open to new collaborations, partnerships, and opportunities. Let&apos;s build something secure, scalable, and future-ready.
+      </p>
+      <div className="space-y-4 border-t border-hacker-green/20 pt-4">
+        <div>
+          <div className="text-hacker-cyan font-semibold mb-1">$ cat .email</div>
+          <a href="mailto:emshuvo@aimlake.com" className="block text-hacker-green hover:text-hacker-cyan transition-colors">
+            → emshuvo@aimlake.com
+          </a>
+          <a href="mailto:emshuvo@capitalizedmoney.com" className="block text-hacker-green hover:text-hacker-cyan transition-colors">
+            → emshuvo@capitalizedmoney.com
+          </a>
+        </div>
+        <div>
+          <div className="text-hacker-cyan font-semibold mb-1">$ cat .location</div>
+          <p className="text-hacker-green/90">Toronto, Ontario, Canada</p>
         </div>
       </div>
-    </section>
+    </TerminalWindow>
   );
 }
-

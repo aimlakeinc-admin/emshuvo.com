@@ -49,6 +49,21 @@ body {
   z-index: 50;
 }
 
+/* Grid move (loading / backgrounds) */
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.animate-scan {
+  animation: scan 2.5s linear infinite;
+}
+
 /* Global Animations */
 @keyframes code-rain {
   0% { transform: translateY(-100%); opacity: 0; }
@@ -116,4 +131,82 @@ body {
   animation: typewriter 3s steps(40, end), terminal-blink 0.75s step-end infinite;
 }
 
+/* Interactive terminal: output lines stagger in */
+@keyframes output-line-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.terminal-output-line {
+  animation: output-line-in 0.5s ease-out forwards;
+}
+
+/* Terminal window glow pulse */
+@keyframes terminal-glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 65, 0.12), inset 0 1px 0 rgba(255,255,255,0.03); }
+  50% { box-shadow: 0 0 32px rgba(0, 255, 65, 0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+}
+
+.terminal-glow-pulse {
+  animation: terminal-glow-pulse 3s ease-in-out infinite;
+}
+
+/* Block reveal (for custom output content) */
+@keyframes block-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.terminal-block-reveal {
+  animation: block-reveal 0.6s ease-out forwards;
+}
+
+/* ASCII art entrance */
+@keyframes ascii-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+    letter-spacing: 0.2em;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    letter-spacing: 0.05em;
+  }
+}
+
+.ascii-reveal {
+  animation: ascii-reveal 0.8s ease-out forwards;
+}
+
+/* Gradient shift (logo / accents) */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Masterpiece tagline / divider */
+.masterpiece-tagline {
+  letter-spacing: 0.25em;
+  text-shadow: 0 0 20px rgba(0, 255, 65, 0.25);
+}
 

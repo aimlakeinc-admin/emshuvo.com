@@ -23,6 +23,7 @@ const LINES: { text: string; delay: number; className?: string }[] = [
   { text: "Cloud Security · SysAdmin · Full-Stack · AI", delay: 400, className: "text-gray-400" },
   { text: "", delay: 300 },
   { text: "This was a showcase of my expertise. Scroll to explore.", delay: 600, className: "text-purple-300/90 italic" },
+  { text: "CREATIVITY · PRODUCTIVITY · ENGINEERING", delay: 400, className: "text-green-400/80 text-sm tracking-widest" },
 ];
 
 const FAKE_IPS = ["192.168.4.xxx", "10.0.2.xxx", "172.16.xxx.1"];

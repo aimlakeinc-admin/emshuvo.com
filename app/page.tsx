@@ -5,6 +5,7 @@ import Leadership from "@/components/Leadership";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Industries from "@/components/Industries";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Industries />
+      <Contact />
     </>
   );
 }
