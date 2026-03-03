@@ -1,0 +1,201 @@
+const skillCategories = [
+  {
+    title: "Cybersecurity / System Administration",
+    items: [
+      "Red Hat: RHCSA, RHCE",
+      "CompTIA: ITF+, A+, Network+, Security+",
+      "OSCP (Offensive Security Certified Professional)",
+      "CEH (Certified Ethical Hacker)",
+      "PCCSE (Palo Alto Cloud Security Engineer)",
+    ],
+  },
+  {
+    title: "Networking & Cloud",
+    items: [
+      "Cisco CCNA, CCNP",
+      "Amazon AWS",
+      "Microsoft Azure",
+      "Google IT Support (Career Certificate)",
+    ],
+  },
+  {
+    title: "Finance",
+    items: [
+      "Trader Training Course (TTC)",
+      "Investment Dealer Supervisors Course (IDSC)",
+      "Mutual Fund Dealers Association (MFDA)",
+      "Investment Funds in Canada (IFC)",
+    ],
+  },
+  {
+    title: "Software & Tools",
+    items: [
+      "Final Cut Pro X",
+      "DaVinci Resolve",
+      "Adobe Photoshop | Lightroom | Illustrator | XD",
+      "Microsoft Word | PowerPoint | Excel",
+      "Jira | Asana | Confluence | Monday.com",
+      "Splunk | Kibana | Wireshark | Elasticsearch | Docker | GitHub | Kubernetes",
+    ],
+  },
+  {
+    title: "Operating Systems",
+    items: [
+      "Windows Server | macOS | RHEL | CentOS | Fedora",
+      "Ubuntu | Linux Mint | Parrot OS | Kali Linux",
+      "iOS | Android | iPadOS",
+    ],
+  },
+  {
+    title: "Programming Languages",
+    items: [
+      "HTML | CSS | JavaScript | Tailwind CSS",
+      "Python 3",
+      "C++",
+      "MySQL",
+      "Node.js | PostgreSQL | MongoDB",
+      "Next.js 14 (React framework)",
+      "React 18 (UI library)",
+      "React Router DOM - Routing",
+      "Tailwind CSS (utility-first CSS)",
+      "TypeScript (type system)",
+      "Vite - Build tool and dev server",
+      "Lucide React - Icons",
+      "OpenPyXL (Python) - File Processing",
+    ],
+  },
+];
+
+export default function Skills() {
+  return (
+    <section
+      id="certifications"
+      className="py-6 relative backdrop-blur-sm"
+      style={{
+        background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%)'
+      }}
+    >
+      {/* Cybersecurity Grid Overlay */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: `
+              linear-gradient(cyan 1px, transparent 1px),
+              linear-gradient(90deg, cyan 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }} 
+        />
+      </div>
+
+      {/* Binary Code Rain Effect */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-cyan-400/10 font-mono text-xs"
+            style={{
+              left: `${(i * 7) % 100}%`,
+              top: `${(i * 8) % 100}%`,
+              animation: `code-rain ${3 + (i % 3)}s linear infinite`,
+              animationDelay: `${i * 0.3}s`,
+            }}
+          >
+            {i % 2 === 0 ? '0' : '1'}
+          </div>
+        ))}
+      </div>
+
+      {/* Subtle Scan Lines */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent animate-hack-scan" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-400/15 to-transparent animate-hack-scan" style={{ animationDelay: '2s' }} />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
+        <div className="text-center mb-6">
+          <div className="relative inline-block mb-4">
+            <div className="text-5xl md:text-6xl font-display font-bold tracking-tight relative">
+              {/* Main text with gradient */}
+              <span 
+                className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient"
+                style={{
+                  backgroundSize: '200% 200%',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Skills & Certifications
+              </span>
+              
+              {/* Glitch overlay effect - subtle */}
+              <span 
+                className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-glitch pointer-events-none"
+                style={{
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  mixBlendMode: 'screen',
+                }}
+                aria-hidden="true"
+              >
+                Skills & Certifications
+              </span>
+              
+              {/* Cybersecurity scan effect */}
+              <div 
+                className="absolute inset-0 pointer-events-none overflow-hidden"
+                style={{ height: '100%' }}
+              >
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-400/40 to-transparent animate-hack-scan" />
+              </div>
+              
+              {/* Terminal-style brackets */}
+              <span className="absolute -left-6 top-0 text-cyan-400/50 font-mono text-2xl md:text-3xl">[</span>
+              <span className="absolute -right-6 top-0 text-cyan-400/50 font-mono text-2xl md:text-3xl">]</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {skillCategories.map((category, index) => {
+            const colors = [
+              { bg: 'from-blue-500/20 to-cyan-500/20', border: 'border-blue-400/50', text: 'text-blue-300', accent: 'from-blue-400 to-cyan-400', bullet: 'text-blue-400' },
+              { bg: 'from-green-500/20 to-emerald-500/20', border: 'border-green-400/50', text: 'text-green-300', accent: 'from-green-400 to-emerald-400', bullet: 'text-green-400' },
+              { bg: 'from-purple-500/20 to-pink-500/20', border: 'border-purple-400/50', text: 'text-purple-300', accent: 'from-purple-400 to-pink-400', bullet: 'text-purple-400' },
+              { bg: 'from-orange-500/20 to-amber-500/20', border: 'border-orange-400/50', text: 'text-orange-300', accent: 'from-orange-400 to-amber-400', bullet: 'text-orange-400' },
+              { bg: 'from-indigo-500/20 to-blue-500/20', border: 'border-indigo-400/50', text: 'text-indigo-300', accent: 'from-indigo-400 to-blue-400', bullet: 'text-indigo-400' },
+              { bg: 'from-pink-500/20 to-rose-500/20', border: 'border-pink-400/50', text: 'text-pink-300', accent: 'from-pink-400 to-rose-400', bullet: 'text-pink-400' },
+            ];
+            const colorScheme = colors[index % colors.length];
+            return (
+              <div
+                key={index}
+                className={`group bg-gradient-to-br ${colorScheme.bg} backdrop-blur-md rounded-xl shadow-xl p-6 md:p-8 border ${colorScheme.border} transition-all duration-300 hover:shadow-2xl hover:-translate-y-1`}
+              >
+                <div className="flex items-center mb-5">
+                  <div className={`w-1 h-8 bg-gradient-to-b ${colorScheme.accent} rounded-full mr-3`}></div>
+                  <h3 className={`text-lg md:text-xl font-display font-bold ${colorScheme.text} tracking-tight group-hover:opacity-80 transition-opacity`}>
+                    {category.title}
+                  </h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {category.items.map((item, itemIndex) => (
+                    <li
+                      key={itemIndex}
+                      className="text-gray-200 text-sm md:text-base leading-relaxed flex items-start"
+                    >
+                      <span className={`${colorScheme.bullet} mr-2 mt-1`}>▸</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
