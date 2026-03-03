@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
+import HackIntroWrapper from "@/components/HackIntroWrapper";
 
 const ptSansNarrow = PT_Sans_Narrow({
   subsets: ["latin"],
@@ -129,10 +130,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${ptSansNarrow.variable} font-sans text-white relative`}>
-        <Loading />
-        <Header />
-        <main className="relative z-10">{children}</main>
-        <Footer />
+        <HackIntroWrapper>
+          <Loading />
+          <Header />
+          <main className="relative z-10">{children}</main>
+          <Footer />
+        </HackIntroWrapper>
       </body>
     </html>
   );
