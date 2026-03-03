@@ -2,13 +2,17 @@
 
 import { useEffect, useState } from "react";
 
-const FULL_TEXT = "Evan architects systems that outlive trends. Secure, scalable, AI-powered. Toronto.";
-const SIGNATURE = "Security is not a feature. It's a foundation.";
-const QUOTE = "Think in systems & strategic infrastructure.";
+const SIGNATURE = "Think in systems & strategic infrastructure.";
+
+const TERMINAL_LINES = [
+  "5+ years",
+  "50+ deployments",
+  "5+ orgs",
+];
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
-  const [displayedText, setDisplayedText] = useState("");
+  const [visibleLines, setVisibleLines] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
@@ -16,26 +20,14 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    let currentIndex = 0;
-    const typingSpeed = 40;
-    let timeoutId: NodeJS.Timeout;
-    let cursorInterval: NodeJS.Timeout;
+    if (visibleLines >= TERMINAL_LINES.length) return;
+    const t = setTimeout(() => setVisibleLines((n) => n + 1), 600);
+    return () => clearTimeout(t);
+  }, [visibleLines]);
 
-    const typeText = () => {
-      if (currentIndex < FULL_TEXT.length) {
-        setDisplayedText(FULL_TEXT.substring(0, currentIndex + 1));
-        currentIndex++;
-        timeoutId = setTimeout(typeText, typingSpeed);
-      } else {
-        cursorInterval = setInterval(() => setShowCursor((prev) => !prev), 530);
-      }
-    };
-    const startDelay = setTimeout(typeText, 800);
-    return () => {
-      clearTimeout(startDelay);
-      clearTimeout(timeoutId);
-      if (cursorInterval) clearInterval(cursorInterval);
-    };
+  useEffect(() => {
+    const id = setInterval(() => setShowCursor((prev) => !prev), 530);
+    return () => clearInterval(id);
   }, []);
 
   return (
@@ -71,35 +63,23 @@ export default function Hero() {
             EVAN MAHMUD SHUVO
           </h1>
 
-          <p className="text-hacker-green/90 text-lg md:text-xl mb-6 leading-relaxed border-l-2 border-hacker-green/40 pl-4 italic">
+          <p className="text-hacker-green/90 text-lg md:text-xl mb-10 leading-relaxed border-l-2 border-hacker-green/40 pl-4 italic">
             {SIGNATURE}
           </p>
-          <p className="text-hacker-cyan/80 text-base md:text-lg mb-6 pl-4">
-            <span className="text-hacker-green/60">Evan:</span> &ldquo;{QUOTE}&rdquo;
-          </p>
 
-          <div className="bg-hacker-dark/50 border border-hacker-green/20 p-6 mb-10 min-h-[100px]">
-            <p className="text-hacker-green/80 leading-relaxed">
-              <span className="text-hacker-cyan/80">⟩</span>{" "}
-              <span className="inline-block">
-                {displayedText}
-                <span className={`inline-block w-2 h-4 bg-hacker-green ml-0.5 align-middle ${showCursor ? "opacity-100" : "opacity-0"}`} />
-              </span>
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div className="py-4 border border-hacker-green/20 text-hacker-green/70 text-sm">
-              <div className="font-bold text-hacker-cyan/90 text-2xl">5+</div>
-              <div className="mt-1">years</div>
-            </div>
-            <div className="py-4 border border-hacker-green/20 text-hacker-green/70 text-sm">
-              <div className="font-bold text-hacker-cyan/90 text-2xl">50+</div>
-              <div className="mt-1">deployments</div>
-            </div>
-            <div className="py-4 border border-hacker-green/20 text-hacker-green/70 text-sm">
-              <div className="font-bold text-hacker-cyan/90 text-2xl">5+</div>
-              <div className="mt-1">orgs</div>
+          <div className="bg-hacker-dark/50 border border-hacker-green/20 p-6 min-h-[100px]">
+            <div className="text-hacker-green/80 leading-relaxed font-mono space-y-1">
+              {TERMINAL_LINES.slice(0, visibleLines).map((line, i) => (
+                <p key={i}>
+                  <span className="text-hacker-cyan/80">⟩</span> {line}
+                </p>
+              ))}
+              {visibleLines < TERMINAL_LINES.length && (
+                <p>
+                  <span className="text-hacker-cyan/80">⟩</span>
+                  <span className={`inline-block w-2 h-4 bg-hacker-green ml-1 align-middle ${showCursor ? "opacity-100" : "opacity-0"}`} />
+                </p>
+              )}
             </div>
           </div>
         </div>
