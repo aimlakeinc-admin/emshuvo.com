@@ -11,7 +11,7 @@ export default function Contact() {
       asciiTitle="contact"
     >
       <p className="text-hacker-green/70 mb-6 text-sm">
-        Identity. Depth. Philosophy. Precision.
+        Identity. Depth. Principles. Precision.
       </p>
       <div className="space-y-4 border-t border-hacker-green/20 pt-4">
         <div>

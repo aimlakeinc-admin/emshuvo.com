@@ -5,10 +5,10 @@ import TerminalWindow from "./TerminalWindow";
 const LEGACY_LINES = [
   "> legacy --preview",
   "",
-  "What I'm building long-term:",
+  "What Evan is building long-term:",
   "Systems that outlive trends. Not products that chase them. Infrastructure that becomes invisible because it never breaks.",
   "",
-  "What empire means to me:",
+  "What empire means to him:",
   "Not territory. Leverage. The ability to move capital, data, and trust at scale—with security and clarity as non-negotiables.",
   "",
   "Security at scale:",

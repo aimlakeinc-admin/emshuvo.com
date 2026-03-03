@@ -13,16 +13,16 @@ const BELIEFS = [
   { topic: "Discipline", text: "Consistency over intensity. Systems that run every day beat heroics that run once." },
 ];
 
-export default function Philosophy() {
+export default function Principles() {
   return (
     <TerminalWindow
-      id="philosophy"
-      title="philosophy"
-      command="cat /philosophy/core_values.txt"
-      asciiTitle="philosophy"
+      id="principles"
+      title="principles"
+      command="cat /principles/core_values.txt"
+      asciiTitle="principles"
     >
       <p className="text-hacker-green/80 mb-6 text-sm">
-        What I believe. Not resume bullets—operating principles.
+        What Evan believes. Not resume bullets—operating principles.
       </p>
       <div className="space-y-6">
         {BELIEFS.map((b, i) => (

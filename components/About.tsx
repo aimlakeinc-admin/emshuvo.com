@@ -2,18 +2,18 @@ import TerminalWindow from "./TerminalWindow";
 
 const ABOUT_LINES = [
   "A technology leader specializing in cloud security, system administration,",
-  "and full-stack development. I combine expertise in AI automation, cybersecurity,",
+  "and full-stack development. He combines expertise in AI automation, cybersecurity,",
   "and DevOps to create robust, scalable systems that support business innovation.",
   "",
-  "As CEO of Aimlake Inc. and Capitalizedmoney Inc., I deliver cutting-edge",
-  "solutions that blend technology with finance and automation. My focus is on",
+  "As CEO of Aimlake Inc. and Capitalizedmoney Inc., Evan delivers cutting-edge",
+  "solutions that blend technology with finance and automation. His focus is on",
   "creating secure, efficient systems that help organizations achieve their",
   "goals and stay ahead in a fast-evolving digital world.",
   "",
-  "Based in Toronto, Ontario, Canada, I work with businesses across various",
+  "Based in Toronto, Ontario, Canada, he works with businesses across various",
   "industries to build infrastructures that are not only secure and scalable",
   "but also intelligent and automated. Whether it's protecting critical data,",
-  "optimizing cloud deployments, or integrating AI solutions, I bring a",
+  "optimizing cloud deployments, or integrating AI solutions, he brings a",
   "comprehensive approach to every project.",
 ];
 

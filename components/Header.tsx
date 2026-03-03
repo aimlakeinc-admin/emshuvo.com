@@ -6,14 +6,13 @@ import Link from "next/link";
 const LAYERS = [
   { href: "#home", label: "memory", slug: "home" },
   { href: "#about", label: "identity", slug: "about" },
-  { href: "#philosophy", label: "philosophy", slug: "philosophy" },
+  { href: "#principles", label: "principles", slug: "principles" },
   { href: "#expertise", label: "capability", slug: "expertise" },
   { href: "#leadership", label: "leadership", slug: "leadership" },
   { href: "#certifications", label: "stack", slug: "certifications" },
   { href: "#companies", label: "ventures", slug: "companies" },
   { href: "#industries", label: "industries", slug: "industries" },
   { href: "#legacy", label: "legacy", slug: "legacy" },
-  { href: "#contact", label: "contact", slug: "contact" },
 ];
 
 function useTorontoTime() {

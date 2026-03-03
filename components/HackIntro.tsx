@@ -22,7 +22,7 @@ const LINES: { text: string; delay: number; className?: string }[] = [
   { text: "WELCOME TO EVAN MAHMUD SHUVO", delay: 500, className: "text-cyan-400 text-xl md:text-2xl font-bold" },
   { text: "Cloud Security · SysAdmin · Full-Stack · AI", delay: 400, className: "text-gray-400" },
   { text: "", delay: 300 },
-  { text: "This was a showcase of my expertise. Scroll to explore.", delay: 600, className: "text-purple-300/90 italic" },
+  { text: "This was a showcase of Evan's expertise. Scroll to explore.", delay: 600, className: "text-purple-300/90 italic" },
   { text: "CREATIVITY · PRODUCTIVITY · ENGINEERING", delay: 400, className: "text-green-400/80 text-sm tracking-widest" },
 ];
 

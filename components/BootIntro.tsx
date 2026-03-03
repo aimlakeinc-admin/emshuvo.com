@@ -7,7 +7,7 @@ const BOOT_LINES: { text: string; delay: number; className?: string }[] = [
   { text: "", delay: 300 },
   { text: "Initializing vision...", delay: 500 },
   { text: "Loading mission...", delay: 500 },
-  { text: "Mounting philosophy...", delay: 500 },
+  { text: "Mounting principles...", delay: 500 },
   { text: "Mapping consciousness...", delay: 500 },
   { text: "Spooling legacy...", delay: 500 },
   { text: "", delay: 400 },

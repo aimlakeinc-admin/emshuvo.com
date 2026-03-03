@@ -5,10 +5,10 @@ import { useState, useRef, useEffect } from "react";
 const PROMPT = "root@evan:~$ ";
 const COMMANDS: Record<string, { output: string; scroll?: string }> = {
   help: {
-    output: "help\t\tthis message\nabout\t\tidentity & context\nphilosophy\tcore values\ncerts\t\tskills & certifications\ncompanies\tventures\nvision\t\tlegacy & long-term\nstack\t\ttech & capabilities\nclear\t\tclear screen",
+    output: "help\t\tthis message\nabout\t\tidentity & context\nprinciples\toperating principles\ncerts\t\tskills & certifications\ncompanies\tventures\nvision\t\tlegacy & long-term\nstack\t\ttech & capabilities\nclear\t\tclear screen",
   },
   about: { output: "Navigating to identity...", scroll: "#about" },
-  philosophy: { output: "Opening philosophy...", scroll: "#philosophy" },
+  principles: { output: "Opening principles...", scroll: "#principles" },
   certs: { output: "Opening stack...", scroll: "#certifications" },
   companies: { output: "Opening ventures...", scroll: "#companies" },
   vision: { output: "Opening legacy...", scroll: "#legacy" },

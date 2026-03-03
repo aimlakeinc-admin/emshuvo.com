@@ -15,7 +15,7 @@ export default function Footer() {
         }}
       />
 
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
         <div className="text-center max-w-lg mx-auto">
           <Link href="#home" className="inline-block mb-4">
             <Logo />
@@ -25,7 +25,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-hacker-green/20">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-hacker-green/20">
           <p className="text-hacker-green/50 text-sm">
             © {new Date().getFullYear()} Evan Mahmud Shuvo. All rights reserved.
           </p>

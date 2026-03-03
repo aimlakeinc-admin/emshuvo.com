@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-const FULL_TEXT = "I architect systems that outlive trends. Secure, scalable, AI-powered. Toronto.";
+const FULL_TEXT = "Evan architects systems that outlive trends. Secure, scalable, AI-powered. Toronto.";
 const SIGNATURE = "Security is not a feature. It's a foundation.";
+const QUOTE = "Think in systems & strategic infrastructure.";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,7 +41,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center pt-24 pb-32 relative overflow-hidden bg-hacker-black"
+      className="min-h-screen flex flex-col justify-center pt-24 pb-16 relative overflow-hidden bg-hacker-black"
     >
       {/* Subtle binary — low opacity, calm */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06]">
@@ -59,7 +60,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-12 relative z-10 font-mono">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-8 relative z-10 font-mono">
         <div className={`max-w-3xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
 
           <div className="mb-8 text-hacker-cyan/60 text-sm">
@@ -70,11 +71,14 @@ export default function Hero() {
             EVAN MAHMUD SHUVO
           </h1>
 
-          <p className="text-hacker-green/90 text-lg md:text-xl mb-10 leading-relaxed border-l-2 border-hacker-green/40 pl-4 italic">
+          <p className="text-hacker-green/90 text-lg md:text-xl mb-6 leading-relaxed border-l-2 border-hacker-green/40 pl-4 italic">
             {SIGNATURE}
           </p>
+          <p className="text-hacker-cyan/80 text-base md:text-lg mb-6 pl-4">
+            <span className="text-hacker-green/60">Evan:</span> &ldquo;{QUOTE}&rdquo;
+          </p>
 
-          <div className="bg-hacker-dark/50 border border-hacker-green/20 p-6 mb-16 min-h-[100px]">
+          <div className="bg-hacker-dark/50 border border-hacker-green/20 p-6 mb-10 min-h-[100px]">
             <p className="text-hacker-green/80 leading-relaxed">
               <span className="text-hacker-cyan/80">⟩</span>{" "}
               <span className="inline-block">
