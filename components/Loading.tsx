@@ -42,15 +42,15 @@ export default function Loading() {
 
       {/* Main loading content */}
       <div className="relative z-10 text-center">
-        {/* Cyberpunk text */}
+        {/* Welcome text */}
         <div className="mb-8">
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-2">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-2">
             <span className="text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.8)]">
-              INITIALIZING
+              Welcome to Evan&apos;s Heaven
             </span>
           </h1>
           <div className="text-xl md:text-2xl font-display text-purple-400 mt-2">
-            <span className="animate-pulse">SYSTEM</span>
+            <span className="animate-pulse">Ha ha ha</span>
           </div>
         </div>
 

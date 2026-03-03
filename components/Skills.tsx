@@ -41,9 +41,9 @@ const skillCategories = [
   {
     title: "Operating Systems",
     items: [
-      "Windows Server | macOS | RHEL | CentOS | Fedora",
-      "Ubuntu | Linux Mint | Parrot OS | Kali Linux",
-      "iOS | Android | iPadOS",
+      "Windows Server · macOS · RHEL · CentOS · Fedora",
+      "Ubuntu · Linux Mint · Parrot OS · Kali Linux",
+      "iOS · Android · iPadOS",
     ],
   },
   {

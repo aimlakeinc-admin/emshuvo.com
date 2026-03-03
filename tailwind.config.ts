@@ -29,10 +29,19 @@ const config: Config = {
           orange: "#f59e0b",
           pink: "#ec4899",
         },
+        hacker: {
+          green: "#00ff41",
+          cyan: "#00ffff",
+          dark: "#050505",
+          black: "#000000",
+          glow: "rgba(0, 255, 65, 0.5)",
+          red: "#ff003c"
+        }
       },
       fontFamily: {
-        sans: ["var(--font-pt-sans-narrow)", "system-ui", "sans-serif"],
-        display: ["var(--font-pt-sans-narrow)", "system-ui", "sans-serif"],
+        sans: ["var(--font-share-tech-mono)", "system-ui", "sans-serif"],
+        display: ["var(--font-share-tech-mono)", "system-ui", "sans-serif"],
+        mono: ["var(--font-share-tech-mono)", "monospace"],
       },
     },
   },

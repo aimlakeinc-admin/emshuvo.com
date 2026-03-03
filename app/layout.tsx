@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { PT_Sans_Narrow } from "next/font/google";
+import { Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
 import HackIntroWrapper from "@/components/HackIntroWrapper";
 
-const ptSansNarrow = PT_Sans_Narrow({
+const shareTechMono = Share_Tech_Mono({
   subsets: ["latin"],
-  variable: "--font-pt-sans-narrow",
-  weight: ["400", "700"],
+  variable: "--font-share-tech-mono",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -67,6 +67,9 @@ export const metadata: Metadata = {
   verification: {
     google: "",
   },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -77,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
         {/* Additional Open Graph Meta Tags for WhatsApp compatibility */}
         <meta property="og:title" content="Evan Mahmud Shuvo – Cybersecurity & Tech Entrepreneur" />
         <meta property="og:description" content="Founder of Aimlake Inc. | Cybersecurity | Web & App Development | Automotive Tech | Cloud Solutions | Toronto." />
@@ -88,14 +92,14 @@ export default function RootLayout({
         <meta property="og:image:alt" content="Evan Mahmud Shuvo - Cloud Security Engineer & Full-Stack Developer" />
         <meta property="og:url" content="https://emshuvo.com/" />
         <meta property="og:type" content="website" />
-        
+
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Evan Mahmud Shuvo – Cybersecurity & Tech Entrepreneur" />
         <meta name="twitter:description" content="Founder of Aimlake Inc. | Cybersecurity | Web & App Development | Cloud Tech | Toronto." />
         <meta name="twitter:image" content="https://emshuvo.com/EmShuvo.png" />
         <meta name="twitter:image:src" content="https://emshuvo.com/EmShuvo.png" />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -129,7 +133,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${ptSansNarrow.variable} font-sans text-white relative`}>
+      <body className={`${shareTechMono.variable} font-sans text-hacker-green bg-hacker-black relative`}>
+        <div className="fixed inset-0 pointer-events-none z-50 crt-overlay"></div>
         <HackIntroWrapper>
           <Loading />
           <Header />

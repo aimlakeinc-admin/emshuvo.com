@@ -47,137 +47,73 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.98) 30%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.98) 100%)'
-      }}
+      className="min-h-screen flex flex-col justify-center pt-20 relative overflow-hidden bg-hacker-black"
     >
-      {/* Animated Cyberpunk grid overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div 
-          className="absolute inset-0" 
-          style={{
-            backgroundImage: `
-              linear-gradient(cyan 1px, transparent 1px),
-              linear-gradient(90deg, cyan 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-            animation: 'gridMove 20s linear infinite'
-          }} 
-        />
-      </div>
-
       {/* Cybersecurity Code Rain Effect */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+        {[...Array(25)].map((_, i) => (
           <div
             key={i}
-            className="absolute text-cyan-400/20 font-mono text-xs animate-code-rain"
+            className="absolute text-hacker-green font-mono text-xs animate-code-rain"
             style={{
-              left: `${(i * 5) % 100}%`,
-              animationDelay: `${i * 0.2}s`,
-              animationDuration: `${3 + (i % 3)}s`,
+              left: `${(i * 4) % 100}%`,
+              animationDelay: `${i * 0.15}s`,
+              animationDuration: `${3 + (i % 4)}s`,
             }}
           >
-            {i % 2 === 0 ? '0' : '1'}
+            {Math.random() > 0.5 ? '0' : '1'}
           </div>
         ))}
       </div>
 
-      {/* Hacking Scan Lines */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent animate-hack-scan" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-400/30 to-transparent animate-hack-scan" style={{ animationDelay: '2s' }} />
-      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 font-mono">
+        <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
-      {/* Terminal Cursor Effect */}
-      <div className="absolute top-1/4 left-1/4 pointer-events-none">
-        <div className="text-cyan-400/30 font-mono text-xs flex items-center">
-          <span className="mr-2">$</span>
-          <span className="animate-terminal-blink">_</span>
-        </div>
-      </div>
+          <div className="mb-4 text-hacker-cyan text-sm">
+            <span>root@emshuvo.com:~$</span> ./execute_profile.sh
+          </div>
 
-      {/* Animated particles/glow effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-        <div className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 tracking-tight animate-fade-in-up relative inline-block">
-            <span className="relative z-10">Hi, I&apos;m Evan Mahmud Shuvo</span>
-            {/* Animated underline effect */}
-            <span className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50 animate-pulse" />
+          <h1 className="text-4xl md:text-6xl font-bold text-hacker-green mb-6 animate-glitch border-b border-hacker-green/50 pb-4 inline-block pr-6">
+            &gt; EVAN_MAHMUD_SHUVO
           </h1>
-          
-          {/* Futuristic Video-Style Tagline */}
-          <div className="relative mb-6 inline-block">
-            <div className="text-2xl md:text-3xl font-display font-bold tracking-tight relative">
-              {/* Main text with gradient */}
-              <span 
-                className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient"
-                style={{
-                  backgroundSize: '200% 200%',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                Cloud Security, SysAdmin, AI, Business Growth & Digitalization Expertise
-              </span>
-              
-              {/* Glitch overlay effect - subtle */}
-              <span 
-                className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-glitch pointer-events-none"
-                style={{
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  mixBlendMode: 'screen',
-                }}
-                aria-hidden="true"
-              >
-                Cloud Security, SysAdmin, AI, Business Growth & Digitalization Expertise
-              </span>
-              
-              {/* Cybersecurity scan effect */}
-              <div 
-                className="absolute inset-0 pointer-events-none overflow-hidden"
-                style={{ height: '100%' }}
-              >
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-400/40 to-transparent animate-hack-scan" />
-              </div>
-              
-              {/* Terminal-style brackets */}
-              <span className="absolute -left-4 top-0 text-cyan-400/50 font-mono text-lg">[</span>
-              <span className="absolute -right-4 top-0 text-cyan-400/50 font-mono text-lg">]</span>
+
+          <div className="relative mb-6">
+            <div className="text-xl md:text-2xl font-bold text-hacker-cyan bg-hacker-green/5 border border-hacker-green/30 p-4 shadow-[0_0_15px_rgba(0,255,65,0.1)]">
+              [ ACCESS_LEVEL: ROOT ] <br className="md:hidden" />
+              <span className="text-hacker-green mt-2 inline-block">Cloud Security | SysAdmin | AI | Business Growth</span>
             </div>
           </div>
-          
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Building secure systems that scales like never before.
-          </p>
-          
-          <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            <span className="inline-block">
-              {displayedText}
-              <span className={`inline-block w-0.5 h-5 bg-cyan-400 ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'}`} style={{ animation: 'blink-cursor 0.75s step-end infinite' }} />
-            </span>
+
+          <p className="text-lg text-hacker-green/80 mb-6 font-mono">
+            <span className="text-hacker-cyan">&gt;</span> Building secure systems that scale like never before.
           </p>
 
+          <div className="bg-hacker-dark border border-hacker-green/30 p-5 mb-10 shadow-[inset_0_0_20px_rgba(0,255,65,0.05)] min-h-[140px] md:min-h-[100px]">
+            <p className="text-lg text-hacker-green leading-relaxed font-mono">
+              <span className="text-hacker-red mr-3">root@sys:~#</span>
+              <span className="inline-block">
+                {displayedText}
+                <span className={`inline-block w-2.5 h-6 bg-hacker-green ml-1 align-middle ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
+              </span>
+            </p>
+          </div>
+
           {/* Quick Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-md rounded-xl shadow-xl p-6 border border-blue-400/50 hover:border-blue-300 transition-all duration-300 hover:shadow-blue-500/20 hover:-translate-y-1">
-              <div className="text-4xl font-display font-bold text-blue-300 mb-2">5+</div>
-              <div className="text-gray-200 font-medium">Years of Experience</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
+            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-1 text-xs text-hacker-green/40 group-hover:text-hacker-dark/40">SYS.VAR.01</div>
+              <div className="text-4xl font-bold mb-2 text-hacker-cyan group-hover:text-hacker-dark group-hover:animate-glitch">&gt; 5+</div>
+              <div className="text-hacker-green font-medium group-hover:text-hacker-dark">&gt; YEARS_EXP_</div>
             </div>
-            <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-md rounded-xl shadow-xl p-6 border border-green-400/50 hover:border-green-300 transition-all duration-300 hover:shadow-green-500/20 hover:-translate-y-1">
-              <div className="text-4xl font-display font-bold text-green-300 mb-2">50+</div>
-              <div className="text-gray-200 font-medium">Projects Completed</div>
+            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-1 text-xs text-hacker-green/40 group-hover:text-hacker-dark/40">SYS.VAR.02</div>
+              <div className="text-4xl font-bold mb-2 text-hacker-cyan group-hover:text-hacker-dark group-hover:animate-glitch">&gt; 50+</div>
+              <div className="text-hacker-green font-medium group-hover:text-hacker-dark">&gt; DEPLOYMENTS_</div>
             </div>
-            <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-md rounded-xl shadow-xl p-6 border border-purple-400/50 hover:border-purple-300 transition-all duration-300 hover:shadow-purple-500/20 hover:-translate-y-1">
-              <div className="text-4xl font-display font-bold text-purple-300 mb-2">5+</div>
-              <div className="text-gray-200 font-medium">Companies Founded & Served</div>
+            <div className="bg-hacker-dark border border-hacker-green p-6 hover:bg-hacker-green hover:text-hacker-dark transition-all duration-300 group cursor-default relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-1 text-xs text-hacker-green/40 group-hover:text-hacker-dark/40">SYS.VAR.03</div>
+              <div className="text-4xl font-bold mb-2 text-hacker-cyan group-hover:text-hacker-dark group-hover:animate-glitch">&gt; 5+</div>
+              <div className="text-hacker-green font-medium group-hover:text-hacker-dark">&gt; ORGS_INITIALIZED_</div>
             </div>
           </div>
         </div>
