@@ -20,11 +20,8 @@ export default function Footer() {
           <Link href="#home" className="inline-block mb-4">
             <Logo />
           </Link>
-          <p className="text-hacker-green/80 text-sm leading-relaxed mb-2">
-            Cloud Security, SysAdmin & Full-Stack. Building secure, scalable systems for the future.
-          </p>
-          <p className="text-hacker-cyan/60 text-xs tracking-widest masterpiece-tagline mb-8">
-            CREATIVITY  ·  PRODUCTIVITY  ·  ENGINEERING
+          <p className="text-hacker-green/50 text-sm leading-relaxed mb-8">
+            Systems that outlive trends.
           </p>
         </div>
 

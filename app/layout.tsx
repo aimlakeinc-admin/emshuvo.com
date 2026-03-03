@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
 import HackIntroWrapper from "@/components/HackIntroWrapper";
+import ShellTerminal from "@/components/ShellTerminal";
+import ScrollBinary from "@/components/ScrollBinary";
 
 const shareTechMono = Share_Tech_Mono({
   subsets: ["latin"],
@@ -134,12 +136,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${shareTechMono.variable} font-sans text-hacker-green bg-hacker-black relative`}>
-        <div className="fixed inset-0 pointer-events-none z-50 crt-overlay"></div>
+        <div className="fixed inset-0 pointer-events-none z-50 crt-overlay" aria-hidden />
+        <ScrollBinary />
         <HackIntroWrapper>
           <Loading />
           <Header />
           <main className="relative z-10">{children}</main>
           <Footer />
+          <ShellTerminal />
         </HackIntroWrapper>
       </body>
     </html>

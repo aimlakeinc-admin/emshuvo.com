@@ -7,25 +7,25 @@ export default function Contact() {
     <TerminalWindow
       id="contact"
       title="contact"
-      command="echo 'Open to collaborations · Secure · Scalable · Future-ready'"
+      command="cat .contact"
       asciiTitle="contact"
     >
-      <p className="text-hacker-green/90 mb-4">
-        I&apos;m open to new collaborations, partnerships, and opportunities. Let&apos;s build something secure, scalable, and future-ready.
+      <p className="text-hacker-green/70 mb-6 text-sm">
+        Identity. Depth. Philosophy. Precision.
       </p>
       <div className="space-y-4 border-t border-hacker-green/20 pt-4">
         <div>
-          <div className="text-hacker-cyan font-semibold mb-1">$ cat .email</div>
-          <a href="mailto:emshuvo@aimlake.com" className="block text-hacker-green hover:text-hacker-cyan transition-colors">
-            → emshuvo@aimlake.com
+          <div className="text-hacker-cyan/80 font-semibold mb-1 text-sm">email</div>
+          <a href="mailto:emshuvo@aimlake.com" className="block text-hacker-green/80 hover:text-hacker-cyan transition-colors text-sm">
+            emshuvo@aimlake.com
           </a>
-          <a href="mailto:emshuvo@capitalizedmoney.com" className="block text-hacker-green hover:text-hacker-cyan transition-colors">
-            → emshuvo@capitalizedmoney.com
+          <a href="mailto:emshuvo@capitalizedmoney.com" className="block text-hacker-green/80 hover:text-hacker-cyan transition-colors text-sm">
+            emshuvo@capitalizedmoney.com
           </a>
         </div>
         <div>
-          <div className="text-hacker-cyan font-semibold mb-1">$ cat .location</div>
-          <p className="text-hacker-green/90">Toronto, Ontario, Canada</p>
+          <div className="text-hacker-cyan/80 font-semibold mb-1 text-sm">location</div>
+          <p className="text-hacker-green/80 text-sm">Toronto, Ontario, Canada</p>
         </div>
       </div>
     </TerminalWindow>

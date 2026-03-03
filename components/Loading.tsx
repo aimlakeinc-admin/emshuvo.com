@@ -46,13 +46,10 @@ export default function Loading() {
 ╚═══════════════════════════════════════════════╝`}
         </pre>
 
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-hacker-green mb-2 masterpiece-tagline">
+        <h1 className="text-2xl md:text-4xl font-bold text-hacker-green mb-6">
           Welcome to Evan&apos;s Heaven
         </h1>
-        <p className="text-hacker-cyan/90 text-sm md:text-base mb-2">Ha ha ha</p>
-        <p className="text-hacker-green/60 text-xs md:text-sm mb-8 tracking-widest">
-          CREATIVITY  ·  PRODUCTIVITY  ·  ENGINEERING
-        </p>
+        <p className="text-hacker-cyan/70 text-sm mb-8">Ha ha ha</p>
 
         {/* Progress bar */}
         <div className="w-64 md:w-96 mx-auto mb-3">

@@ -1,22 +1,22 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import HackIntro from "./HackIntro";
+import BootIntro from "./BootIntro";
 
 export default function HackIntroWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [showHackIntro, setShowHackIntro] = useState(true);
+  const [showBoot, setShowBoot] = useState(true);
 
   const handleComplete = useCallback(() => {
-    setShowHackIntro(false);
+    setShowBoot(false);
   }, []);
 
   return (
     <>
-      {showHackIntro && <HackIntro onComplete={handleComplete} />}
+      {showBoot && <BootIntro onComplete={handleComplete} />}
       {children}
     </>
   );

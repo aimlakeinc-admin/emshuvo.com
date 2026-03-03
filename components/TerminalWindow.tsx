@@ -90,10 +90,10 @@ export default function TerminalWindow({
     <section
       ref={sectionRef}
       id={id}
-      className="py-8 md:py-12 relative"
+      className="py-16 md:py-24 relative"
       style={{ background: "linear-gradient(180deg, #0a0e14 0%, #0d1117 100%)" }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         {asciiTitle && <AsciiBanner title={asciiTitle} visible={inView} />}
         <div
           className="terminal-glow-pulse mx-auto max-w-5xl rounded-lg overflow-hidden border font-mono text-sm md:text-base transition-shadow duration-300"
