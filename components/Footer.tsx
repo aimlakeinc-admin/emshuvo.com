@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const LINKS = [
@@ -26,11 +27,11 @@ export default function Footer() {
             <Link href="#home" className="group inline-flex items-center gap-3 mb-4">
               <div className="relative w-10 h-10">
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 opacity-80 group-hover:opacity-100 transition-opacity blur-[2px]" />
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center">
-                  <span className="text-white font-black text-base md:text-sm tracking-widest">ES</span>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center overflow-hidden">
+                  <Image src="/EmShuvo.png" alt="Mr. Evan Logo" width={40} height={40} className="object-cover" />
                 </div>
               </div>
-              <span className="text-base font-bold text-white">Evan Shuvo</span>
+              <span className="text-base font-bold text-white">Mr. Evan</span>
             </Link>
             <p className="text-base md:text-sm text-zinc-400 leading-relaxed max-w-xs">
               Cloud Security Engineer, System Architect & Full-Stack Developer based in Toronto, Canada.
