@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const LAYERS = [
@@ -55,9 +54,8 @@ export default function Header() {
         }`}
     >
       <div className="section-container flex items-center justify-between">
-        {/* Logo */}
-        <Link href="#home" className="group flex items-center gap-3">
-          <Image src="/favicon.png" alt="Mr. Evan Logo" width={36} height={36} className="object-contain" />
+        {/* Brand */}
+        <Link href="#home" className="group flex items-center gap-2">
           <div className="flex flex-col leading-none">
             <span className="text-lg md:text-base font-bold text-white tracking-tight">Mr. Evan</span>
             <span className="text-[10px] text-zinc-400 font-medium mt-0.5">Cloud · AI · Systems</span>
