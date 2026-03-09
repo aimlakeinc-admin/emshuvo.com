@@ -32,18 +32,37 @@ export default function ParticleField() {
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
         const resize = () => {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
+            const parent = canvas.parentElement;
+            width = parent ? parent.offsetWidth : window.innerWidth;
+            height = parent ? parent.offsetHeight : window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            // Redistribute particles if canvas gets larger so they aren't stuck in a box
+            particlesRef.current.forEach(p => {
+                if (p.x > width) p.x = Math.random() * width;
+                if (p.y > height) p.y = Math.random() * height;
+            });
         };
         resize();
-        window.addEventListener("resize", resize);
+
+        // Use ResizeObserver instead of window resize to catch content height changes
+        const ro = new ResizeObserver(() => resize());
+        if (canvas.parentElement) {
+            ro.observe(canvas.parentElement);
+        } else {
+            window.addEventListener("resize", resize);
+        }
 
         // Init particles
-        const count = Math.min(180, Math.floor((canvas.width * canvas.height) / 8000));
+        const count = Math.min(220, Math.floor((width * height) / 7000));
         particlesRef.current = Array.from({ length: count }, () => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
+            x: Math.random() * width,
+            y: Math.random() * height,
             vx: (Math.random() - 0.5) * 0.4,
             vy: (Math.random() - 0.5) * 0.4,
             r: Math.random() * 1.5 + 0.5,
@@ -58,7 +77,7 @@ export default function ParticleField() {
         window.addEventListener("mousemove", onMouseMove);
 
         const draw = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, width, height);
 
             particlesRef.current.forEach((p) => {
                 // Gentle mouse repulsion
@@ -117,6 +136,7 @@ export default function ParticleField() {
 
         return () => {
             cancelAnimationFrame(animRef.current);
+            ro.disconnect();
             window.removeEventListener("resize", resize);
             window.removeEventListener("mousemove", onMouseMove);
         };
