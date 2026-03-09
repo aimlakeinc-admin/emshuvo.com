@@ -90,7 +90,7 @@ function AnimatedOrb() {
 export default function FloatingOrb() {
     return (
         <Canvas
-            camera={{ position: [0, 0, 3.5], fov: 55 }}
+            camera={{ position: [0, 0, 4.5], fov: 50 }}
             gl={{ antialias: true, alpha: true }}
             style={{ background: "transparent" }}
         >
