@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import ParticleField from "./3D/ParticleField";
 import { motion } from "framer-motion";
@@ -178,55 +177,38 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ── Right: Portrait & 3D Orb ─── */}
+          {/* ── Right: 3D Orb ─── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative hidden lg:flex items-center justify-center h-[600px] w-full"
+            className="relative hidden lg:flex items-center justify-center"
           >
-            {/* Background 3D Orb & Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px]">
-              <div className="absolute inset-8 rounded-full bg-violet-600/20 blur-[60px] animate-pulse-ring" />
-              <div className="absolute inset-0 rounded-full bg-blue-600/10 blur-[80px]" />
-              <div className="absolute inset-0 opacity-60 mix-blend-screen scale-110">
-                <FloatingOrb />
-              </div>
+            <div className="relative w-[520px] h-[520px]">
+              {/* Glow rings */}
+              <div className="absolute inset-8 rounded-full bg-violet-600/10 blur-2xl animate-pulse-ring" />
+              <div className="absolute inset-0 rounded-full bg-blue-600/5 blur-3xl" />
+              <FloatingOrb />
             </div>
 
-            {/* User Portrait */}
-            <div className="relative z-10 w-[450px] h-[580px] mt-12 flex justify-center items-end drop-shadow-2xl">
-              {/* Bottom fade gradient to blend portrait cleanly into the hero background */}
-              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050508] via-[#050508]/80 to-transparent z-20 pointer-events-none" />
-
-              <Image
-                src="/images/evan-shuvo.png"
-                alt="Evan Mahmud Shuvo Portrait"
-                width={800}
-                height={1000}
-                className="w-full h-auto object-contain object-bottom filter contrast-[1.05] brightness-[0.95] drop-shadow-[0_0_30px_rgba(139,92,246,0.3)] z-10"
-                priority
-              />
-            </div>
-
-            {/* Floating info chip — top right */}
+            {/* Floating info chip — top left */}
             <motion.div
-              animate={{ y: [0, -12, 0], rotate: [1, -1, 1] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-12 right-0 z-30 glass-card rounded-2xl px-5 py-4 min-w-[180px] shadow-[0_0_40px_rgba(139,92,246,0.15)] border border-white/10 backdrop-blur-xl"
+              animate={{ y: [0, -12, 0], rotate: [-1, 1, -1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-8 -left-8 glass-card rounded-2xl px-4 py-3 min-w-[160px] shadow-2xl"
             >
-              <p className="text-sm md:text-xs text-zinc-400 font-medium mb-1 tracking-wide uppercase">Current Focus</p>
-              <p className="text-lg md:text-base font-bold text-white tracking-tight">AI Infrastructure</p>
+              <p className="text-sm md:text-xs text-zinc-400 font-medium mb-1">Current Focus</p>
+              <p className="text-lg md:text-base font-bold text-white">AI Infrastructure</p>
             </motion.div>
 
-            {/* Floating info chip — bottom left */}
+            {/* Floating info chip — bottom right  */}
             <motion.div
-              animate={{ y: [0, 14, 0], rotate: [-1, 1, -1] }}
+              animate={{ y: [0, 14, 0], rotate: [1, -1, 1] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-28 left-4 z-30 glass-card rounded-2xl px-5 py-4 min-w-[190px] shadow-[0_0_40px_rgba(59,130,246,0.15)] border border-white/10 backdrop-blur-xl"
+              className="absolute bottom-16 -right-4 glass-card rounded-2xl px-4 py-3 min-w-[180px] shadow-2xl"
             >
-              <p className="text-sm md:text-xs text-zinc-400 font-medium mb-1 tracking-wide uppercase">Based in</p>
-              <p className="text-lg md:text-base font-bold text-white tracking-tight flex items-center gap-2">Toronto <span className="text-xl">🇨🇦</span></p>
+              <p className="text-sm md:text-xs text-zinc-400 font-medium mb-1">Based in</p>
+              <p className="text-lg md:text-base font-bold text-white">Toronto 🇨🇦</p>
             </motion.div>
           </motion.div>
         </div>
