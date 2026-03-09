@@ -65,7 +65,7 @@ function DraggableTerminal({
 
   return (
     <div
-      className="relative flex-1 min-w-0 rounded-lg overflow-hidden border font-mono text-sm flex flex-col shadow-lg transition-shadow"
+      className="relative flex-1 min-w-0 rounded-lg overflow-hidden border font-sans text-sm flex flex-col shadow-lg transition-shadow"
       style={{
         backgroundColor: KALI_BG,
         borderColor: "rgba(0, 255, 65, 0.28)",
@@ -95,7 +95,7 @@ function DraggableTerminal({
         </div>
       </div>
       <div
-        className="flex-1 overflow-y-auto p-4 text-green-300/95"
+        className="flex-1 overflow-y-auto p-4 text-zinc-400/95"
         style={{ color: KALI_GREEN }}
       >
         {children}
@@ -136,7 +136,7 @@ export default function Industries() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AsciiBanner title="industries_served" visible={mounted} />
-        <p className="text-center text-hacker-green/60 text-sm mb-6 font-mono">
+        <p className="text-center text-zinc-400 text-sm mb-6 font-sans">
           Services across diverse industries. Drag title bar to move.
         </p>
       </div>

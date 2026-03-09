@@ -43,7 +43,7 @@ export default function Projects() {
             </div>
             <div className="flex flex-wrap gap-1.5 mt-2">
               {c.industries.map((ind, j) => (
-                <span key={j} className="px-2 py-0.5 rounded border border-green-500/40 text-xs text-green-300/90">
+                <span key={j} className="px-2 py-0.5 rounded border border-green-500/40 text-xs text-zinc-400/90">
                   {ind}
                 </span>
               ))}

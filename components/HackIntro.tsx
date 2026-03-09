@@ -86,7 +86,7 @@ export default function HackIntro({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[10000] flex flex-col bg-black text-green-400/95 overflow-hidden font-mono text-sm md:text-base select-none"
+      className="fixed inset-0 z-[10000] flex flex-col bg-black text-green-400/95 overflow-hidden font-sans text-sm md:text-base select-none"
       role="presentation"
       aria-label="Cybersecurity showcase intro"
     >

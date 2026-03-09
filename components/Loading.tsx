@@ -24,7 +24,7 @@ export default function Loading() {
   if (!loading) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-hacker-black flex flex-col items-center justify-center font-mono">
+    <div className="fixed inset-0 z-[9999] bg-zinc-950 flex flex-col items-center justify-center font-sans">
       {/* Grid background */}
       <div
         className="absolute inset-0 opacity-20"
@@ -40,20 +40,20 @@ export default function Loading() {
 
       <div className="relative z-10 text-center px-4">
         {/* ASCII-style header */}
-        <pre className="text-hacker-cyan/80 text-xs md:text-sm mb-6 tracking-widest whitespace-pre">
+        <pre className="text-zinc-300 text-xs md:text-sm mb-6 tracking-widest whitespace-pre">
           {`╔═══════════════════════════════════════════════╗
 ║  INITIALIZING_MASTERPIECE  ·  EMSHUVO  ║
 ╚═══════════════════════════════════════════════╝`}
         </pre>
 
-        <h1 className="text-2xl md:text-4xl font-bold text-hacker-green mb-6">
+        <h1 className="text-2xl md:text-4xl font-bold text-blue-400 mb-6">
           Welcome to Evan&apos;s Heaven
         </h1>
-        <p className="text-hacker-cyan/70 text-sm mb-8">Ha ha ha</p>
+        <p className="text-zinc-300 text-sm mb-8">Ha ha ha</p>
 
         {/* Progress bar */}
         <div className="w-64 md:w-96 mx-auto mb-3">
-          <div className="h-1.5 bg-hacker-dark border border-hacker-green/40 rounded overflow-hidden">
+          <div className="h-1.5 bg-zinc-900 border border-white/10 rounded overflow-hidden">
             <div
               className="h-full bg-hacker-green transition-all duration-300 relative"
               style={{ width: `${progress}%` }}
@@ -62,7 +62,7 @@ export default function Loading() {
             </div>
           </div>
         </div>
-        <p className="text-hacker-cyan font-bold text-sm">{progress}%</p>
+        <p className="text-blue-300 font-bold text-sm">{progress}%</p>
       </div>
 
       {/* Scan line */}
@@ -71,10 +71,10 @@ export default function Loading() {
       </div>
 
       {/* Corners */}
-      <div className="absolute top-6 left-6 w-16 h-16 border-l-2 border-t-2 border-hacker-green/50" />
-      <div className="absolute top-6 right-6 w-16 h-16 border-r-2 border-t-2 border-hacker-green/50" />
-      <div className="absolute bottom-6 left-6 w-16 h-16 border-l-2 border-b-2 border-hacker-green/50" />
-      <div className="absolute bottom-6 right-6 w-16 h-16 border-r-2 border-b-2 border-hacker-green/50" />
+      <div className="absolute top-6 left-6 w-16 h-16 border-l-2 border-t-2 border-white/10" />
+      <div className="absolute top-6 right-6 w-16 h-16 border-r-2 border-t-2 border-white/10" />
+      <div className="absolute bottom-6 left-6 w-16 h-16 border-l-2 border-b-2 border-white/10" />
+      <div className="absolute bottom-6 right-6 w-16 h-16 border-r-2 border-b-2 border-white/10" />
     </div>
   );
 }

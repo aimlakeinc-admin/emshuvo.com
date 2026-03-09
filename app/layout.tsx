@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Share_Tech_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Loading from "@/components/Loading";
-import HackIntroWrapper from "@/components/HackIntroWrapper";
-import ShellTerminal from "@/components/ShellTerminal";
-import ScrollBinary from "@/components/ScrollBinary";
 
-const shareTechMono = Share_Tech_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-share-tech-mono",
-  weight: ["400"],
+  variable: "--font-inter",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -135,16 +131,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${shareTechMono.variable} font-sans text-hacker-green bg-hacker-black relative`}>
-        <div className="fixed inset-0 pointer-events-none z-50 crt-overlay" aria-hidden />
-        <ScrollBinary />
-        <HackIntroWrapper>
-          <Loading />
-          <Header />
-          <main className="relative z-10">{children}</main>
-          <Footer />
-          <ShellTerminal />
-        </HackIntroWrapper>
+      <body className={`${inter.variable} font-sans bg-zinc-950 text-zinc-50 bg-mesh selection:bg-blue-500/30 selection:text-white antialiased`}>
+        <Header />
+        <main className="relative z-10 w-full min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );

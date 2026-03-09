@@ -4,58 +4,21 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const LAYERS = [
-  { href: "#home", label: "memory", slug: "home" },
-  { href: "#about", label: "identity", slug: "about" },
-  { href: "#principles", label: "principles", slug: "principles" },
-  { href: "#expertise", label: "capability", slug: "expertise" },
-  { href: "#leadership", label: "leadership", slug: "leadership" },
-  { href: "#certifications", label: "stack", slug: "certifications" },
-  { href: "#companies", label: "ventures", slug: "companies" },
-  { href: "#industries", label: "industries", slug: "industries" },
-  { href: "#legacy", label: "legacy", slug: "legacy" },
+  { href: "#home", label: "Home", slug: "home" },
+  { href: "#about", label: "Identity", slug: "about" },
+  { href: "#principles", label: "Principles", slug: "principles" },
+  { href: "#expertise", label: "Capability", slug: "expertise" },
+  { href: "#leadership", label: "Leadership", slug: "leadership" },
+  { href: "#certifications", label: "Stack", slug: "certifications" },
+  { href: "#companies", label: "Ventures", slug: "companies" },
+  { href: "#industries", label: "Industries", slug: "industries" },
+  { href: "#legacy", label: "Legacy", slug: "legacy" },
 ];
-
-function useTorontoTime() {
-  const [time, setTime] = useState("");
-  const [date, setDate] = useState("");
-  useEffect(() => {
-    const format = () => {
-      const now = new Date();
-      const toronto = new Date(now.toLocaleString("en-US", { timeZone: "America/Toronto" }));
-      setTime(toronto.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }));
-      setDate(toronto.toLocaleDateString("en-CA", { weekday: "short", month: "short", day: "numeric" }));
-    };
-    format();
-    const id = setInterval(format, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return { time, date };
-}
-
-function useUptime() {
-  const [uptime, setUptime] = useState("0:00:00");
-  useEffect(() => {
-    const start = Date.now();
-    const tick = () => {
-      const s = Math.floor((Date.now() - start) / 1000);
-      const h = Math.floor(s / 3600);
-      const m = Math.floor((s % 3600) / 60);
-      const sec = s % 60;
-      setUptime(`${h}:${m.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`);
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return uptime;
-}
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentLayer, setCurrentLayer] = useState("memory");
+  const [currentLayer, setCurrentLayer] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { time, date } = useTorontoTime();
-  const uptime = useUptime();
 
   useEffect(() => {
     let ticking = false;
@@ -84,58 +47,87 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 font-mono border-b transition-all duration-300 ${
-        isScrolled ? "bg-hacker-black/95 border-hacker-green/30 backdrop-blur-sm py-2" : "bg-transparent border-transparent py-4"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled
+        ? "glass-nav py-3 border-b border-white/5 shadow-lg shadow-black/20"
+        : "bg-transparent py-6 border-transparent"
+        }`}
     >
-      <div className="w-full max-w-6xl mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center gap-4 md:gap-8 text-xs text-hacker-green/80">
-          <span className="hidden sm:inline">accessing: {currentLayer}</span>
-          <span className="hidden md:inline text-hacker-cyan/70">{date} {time}</span>
-          <span className="hidden lg:inline text-hacker-green/50">uptime: {uptime}</span>
-        </div>
+      <div className="w-full max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
+        {/* Logo / Brand */}
+        <Link
+          href="#home"
+          className="group flex flex-col items-start gap-1"
+        >
+          <span className="text-lg font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors duration-300">
+            Evan M. Shuvo
+          </span>
+          <span className="text-xs font-medium tracking-wide text-zinc-500 hidden sm:block uppercase"> {"// System Architect"}</span>
+        </Link>
 
-        <nav className="flex items-center gap-2">
-          <div className="hidden md:flex items-center gap-1 lg:gap-2">
-            {LAYERS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-2 py-1 text-xs font-medium transition-colors ${
-                  currentLayer === link.slug ? "text-hacker-cyan" : "text-hacker-green/70 hover:text-hacker-green"
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/50 p-1 rounded-full border border-white/5 backdrop-blur-md">
+          {LAYERS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${currentLayer === link.slug
+                ? "text-white bg-white/10 shadow-sm"
+                : "text-zinc-400 hover:text-white hover:bg-white/5"
                 }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <button
-            className="md:hidden p-2 text-hacker-green border border-hacker-green/40 hover:border-hacker-green text-xs"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle layers"
-          >
-            {isMobileMenuOpen ? "×" : "≡"}
-          </button>
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
+
+        {/* Call to Action & Mobile Toggle */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="mailto:emshuvo@aimlake.com"
+            className="hidden md:flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-full transition-colors duration-300 shadow-md shadow-blue-500/20"
+          >
+            Connect
+          </Link>
+          <button
+            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-full bg-zinc-900 border border-white/10 hover:bg-zinc-800 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Navigation"
+          >
+            <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[1px]' : '-translate-y-1'}`} />
+            <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+            <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[1px] absolute' : 'translate-y-1'}`} />
+          </button>
+        </div>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-hacker-black border-b border-hacker-green/30 py-4 px-4 z-50">
-          <div className="text-hacker-cyan/70 text-xs mb-3">layers</div>
-          <div className="flex flex-col gap-1">
-            {LAYERS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="py-2 px-2 text-hacker-green hover:text-hacker-cyan text-sm border-l-2 border-transparent hover:border-hacker-green pl-3"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden absolute top-full left-0 w-full overflow-hidden transition-all duration-500 ease-in-out glass-nav border-t border-white/5 ${isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+      >
+        <div className="flex flex-col py-4 px-6 space-y-2">
+          {LAYERS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`block px-4 py-3 text-sm font-medium rounded-xl transition-colors ${currentLayer === link.slug
+                ? "bg-white/10 text-white"
+                : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="mailto:emshuvo@aimlake.com"
+            className="block px-4 py-3 mt-4 text-sm font-semibold text-center text-white bg-blue-600 rounded-xl"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Connect
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }

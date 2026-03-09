@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 255, 65;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 5, 5, 5;
-  --font-share-tech-mono: var(--font-share-tech-mono);
+  --foreground-rgb: 250, 250, 250;
+  --background-start-rgb: 9, 9, 11;
+  --background-end-rgb: 9, 9, 11;
 }
 
 * {
@@ -20,82 +19,36 @@ html {
 }
 
 body {
-  color: #00ff41;
-  background-color: #000000;
-  font-family: var(--font-share-tech-mono), monospace;
+  color: #fafafa;
+  background-color: #09090b;
+  font-family: var(--font-inter), system-ui, sans-serif;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #00ff41;
-  color: #000000;
+  background: rgba(59, 130, 246, 0.5);
+  /* blue-500 */
+  color: #ffffff;
 }
 
-/* CRT Scanline Overlay */
-.crt-overlay {
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
-  ), linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0.06),
-    rgba(0, 255, 0, 0.02),
-    rgba(0, 0, 255, 0.06)
-  );
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
-  z-index: 50;
-}
-
-/* Grid move (loading / backgrounds) */
-@keyframes gridMove {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
-}
-
-@keyframes scan {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
-.animate-scan {
-  animation: scan 2.5s linear infinite;
+/* Subtle modern mesh/gradient background effect */
+.bg-mesh {
+  background-image:
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 0.1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 0.1) 0, transparent 50%);
+  background-attachment: fixed;
 }
 
 /* Global Animations */
-@keyframes code-rain {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
-@keyframes terminal-blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-@keyframes type-scramble {
-  0% { opacity: 0; transform: scale(0.9); filter: blur(2px); }
-  50% { opacity: 1; filter: blur(0px); }
-  100% { transform: scale(1); }
-}
-
-@keyframes glitch {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -103,110 +56,19 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-code-rain {
-  animation: code-rain 3s linear infinite;
+.glass-panel {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.animate-terminal-blink {
-  animation: terminal-blink 1s step-end infinite;
+.glass-nav {
+  background: rgba(9, 9, 11, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-.animate-glitch {
-  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-}
-
-/* Terminal typing effect */
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.typewriter {
-  overflow: hidden;
-  border-right: 2px solid #00ff41;
-  white-space: nowrap;
-  animation: typewriter 3s steps(40, end), terminal-blink 0.75s step-end infinite;
-}
-
-/* Interactive terminal: output lines stagger in */
-@keyframes output-line-in {
-  from {
-    opacity: 0;
-    transform: translateX(-8px);
-    filter: blur(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-}
-
-.terminal-output-line {
-  animation: output-line-in 0.5s ease-out forwards;
-}
-
-/* Terminal window glow pulse */
-@keyframes terminal-glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 65, 0.12), inset 0 1px 0 rgba(255,255,255,0.03); }
-  50% { box-shadow: 0 0 32px rgba(0, 255, 65, 0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
-}
-
-.terminal-glow-pulse {
-  animation: terminal-glow-pulse 3s ease-in-out infinite;
-}
-
-/* Block reveal (for custom output content) */
-@keyframes block-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.terminal-block-reveal {
-  animation: block-reveal 0.6s ease-out forwards;
-}
-
-/* ASCII art entrance */
-@keyframes ascii-reveal {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-    letter-spacing: 0.2em;
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-    letter-spacing: 0.05em;
-  }
-}
-
-.ascii-reveal {
-  animation: ascii-reveal 0.8s ease-out forwards;
-}
-
-/* Gradient shift (logo / accents) */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
-}
-
-/* Masterpiece tagline / divider */
-.masterpiece-tagline {
-  letter-spacing: 0.25em;
-  text-shadow: 0 0 20px rgba(0, 255, 65, 0.25);
-}
-

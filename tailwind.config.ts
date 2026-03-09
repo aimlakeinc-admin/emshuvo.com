@@ -39,9 +39,9 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ["var(--font-share-tech-mono)", "system-ui", "sans-serif"],
-        display: ["var(--font-share-tech-mono)", "system-ui", "sans-serif"],
-        mono: ["var(--font-share-tech-mono)", "monospace"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "monospace"],
       },
     },
   },

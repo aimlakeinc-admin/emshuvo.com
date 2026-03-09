@@ -11,10 +11,10 @@ const BOOT_LINES: { text: string; delay: number; className?: string }[] = [
   { text: "Mapping consciousness...", delay: 500 },
   { text: "Spooling legacy...", delay: 500 },
   { text: "", delay: 400 },
-  { text: "[ OK ] All layers mounted.", delay: 400, className: "text-hacker-green font-semibold" },
+  { text: "[ OK ] All layers mounted.", delay: 400, className: "text-blue-400 font-semibold" },
   { text: "", delay: 500 },
-  { text: "Consciousness online.", delay: 600, className: "text-hacker-cyan font-bold" },
-  { text: "Scroll to navigate layers.", delay: 400, className: "text-hacker-green/70 text-sm" },
+  { text: "Consciousness online.", delay: 600, className: "text-blue-300 font-bold" },
+  { text: "Scroll to navigate layers.", delay: 400, className: "text-zinc-400 text-sm" },
 ];
 
 export default function BootIntro({ onComplete }: { onComplete: () => void }) {
@@ -60,7 +60,7 @@ export default function BootIntro({ onComplete }: { onComplete: () => void }) {
   if (phase === "exit") {
     return (
       <div
-        className="fixed inset-0 z-[10000] bg-hacker-black transition-opacity duration-500"
+        className="fixed inset-0 z-[10000] bg-zinc-950 transition-opacity duration-500"
         style={{ opacity: 0, pointerEvents: "none" }}
         aria-hidden
       />
@@ -68,7 +68,7 @@ export default function BootIntro({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="fixed inset-0 z-[10000] flex flex-col bg-hacker-black text-hacker-green font-mono text-sm md:text-base overflow-hidden">
+    <div className="fixed inset-0 z-[10000] flex flex-col bg-zinc-950 text-blue-400 font-sans text-sm md:text-base overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
@@ -90,7 +90,7 @@ export default function BootIntro({ onComplete }: { onComplete: () => void }) {
           })}
           {phase === "running" && (
             <div className="flex items-center gap-1 pt-1">
-              <span className="text-hacker-cyan">&gt;</span>
+              <span className="text-blue-300">&gt;</span>
               <span className={`inline-block w-2.5 h-4 bg-hacker-green ${cursorOn ? "opacity-100" : "opacity-0"}`} />
             </div>
           )}
@@ -101,16 +101,16 @@ export default function BootIntro({ onComplete }: { onComplete: () => void }) {
           <button
             type="button"
             onClick={handleSkip}
-            className="px-4 py-2 text-hacker-green/60 hover:text-hacker-green text-xs border border-hacker-green/30 hover:border-hacker-green/50 transition-all"
+            className="px-4 py-2 text-zinc-400 hover:text-blue-400 text-xs border border-white/10 hover:border-white/10 transition-all"
           >
             skip boot
           </button>
         </div>
       )}
-      <div className="absolute top-4 left-4 w-10 h-10 border-l border-t border-hacker-green/30" />
-      <div className="absolute top-4 right-4 w-10 h-10 border-r border-t border-hacker-green/30" />
-      <div className="absolute bottom-4 left-4 w-10 h-10 border-l border-b border-hacker-green/30" />
-      <div className="absolute bottom-4 right-4 w-10 h-10 border-r border-b border-hacker-green/30" />
+      <div className="absolute top-4 left-4 w-10 h-10 border-l border-t border-white/10" />
+      <div className="absolute top-4 right-4 w-10 h-10 border-r border-t border-white/10" />
+      <div className="absolute bottom-4 left-4 w-10 h-10 border-l border-b border-white/10" />
+      <div className="absolute bottom-4 right-4 w-10 h-10 border-r border-b border-white/10" />
     </div>
   );
 }

@@ -21,14 +21,14 @@ export default function Principles() {
       command="cat /principles/core_values.txt"
       asciiTitle="principles"
     >
-      <p className="text-hacker-green/80 mb-6 text-sm">
+      <p className="text-zinc-400 mb-6 text-sm">
         What Evan believes. Not resume bullets—operating principles.
       </p>
       <div className="space-y-6">
         {BELIEFS.map((b, i) => (
-          <div key={i} className="border-l-2 border-hacker-green/30 pl-4">
-            <div className="text-hacker-cyan font-semibold text-sm mb-1">{b.topic}</div>
-            <div className="text-hacker-green/90 text-sm leading-relaxed">{b.text}</div>
+          <div key={i} className="border-l-2 border-white/10 pl-4">
+            <div className="text-blue-300 font-semibold text-sm mb-1">{b.topic}</div>
+            <div className="text-zinc-400 text-sm leading-relaxed">{b.text}</div>
           </div>
         ))}
       </div>
