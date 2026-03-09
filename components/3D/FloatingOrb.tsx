@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { MeshDistortMaterial, Sphere, Stars } from "@react-three/drei";
+import { MeshDistortMaterial, Sphere, Stars, Environment } from "@react-three/drei";
 import * as THREE from "three";
 
 function AnimatedOrb() {
@@ -108,6 +108,7 @@ export default function FloatingOrb() {
             <pointLight position={[5, 5, 5]} intensity={2} color="#6d28d9" />
             <pointLight position={[-5, -5, -5]} intensity={1} color="#3b82f6" />
             <pointLight position={[0, 5, -3]} intensity={1.5} color="#f43f5e" />
+            <Environment preset="city" />
             <Stars
                 radius={80}
                 depth={50}
