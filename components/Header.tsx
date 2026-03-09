@@ -60,7 +60,7 @@ export default function Header() {
           <div className="relative w-9 h-9">
             <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 opacity-80 group-hover:opacity-100 transition-opacity blur-[2px]" />
             <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center overflow-hidden">
-              <Image src="/EmShuvo.png" alt="Mr. Evan Logo" width={36} height={36} className="object-cover" />
+              <Image src="/favicon.png" alt="Mr. Evan Logo" width={36} height={36} className="object-cover" />
             </div>
           </div>
           <div className="flex flex-col leading-none">
