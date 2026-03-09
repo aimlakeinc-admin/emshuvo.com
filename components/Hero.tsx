@@ -182,9 +182,9 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative hidden lg:flex items-center justify-center"
+            className="relative hidden lg:flex items-center justify-center w-full"
           >
-            <div className="relative w-[640px] h-[640px]">
+            <div className="relative w-full max-w-[560px] aspect-square">
               {/* Glow rings */}
               <div className="absolute inset-8 rounded-full bg-violet-600/10 blur-2xl animate-pulse-ring" />
               <div className="absolute inset-0 rounded-full bg-blue-600/5 blur-3xl" />
