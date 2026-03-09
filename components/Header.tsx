@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 const LAYERS = [
   { href: "#home", label: "Home", slug: "home" },
-  { href: "#about", label: "Identity", slug: "about" },
+  { href: "#about", label: "About", slug: "about" },
   { href: "#principles", label: "Principles", slug: "principles" },
-  { href: "#expertise", label: "Capability", slug: "expertise" },
+  { href: "#expertise", label: "Expertise", slug: "expertise" },
   { href: "#leadership", label: "Leadership", slug: "leadership" },
-  { href: "#certifications", label: "Stack", slug: "certifications" },
+  { href: "#certifications", label: "Skills", slug: "certifications" },
   { href: "#companies", label: "Ventures", slug: "companies" },
   { href: "#industries", label: "Industries", slug: "industries" },
   { href: "#legacy", label: "Legacy", slug: "legacy" },
@@ -17,7 +18,7 @@ const LAYERS = [
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentLayer, setCurrentLayer] = useState("home");
+  const [currentSlug, setCurrentSlug] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -25,13 +26,12 @@ export default function Header() {
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 30);
-          const sections = LAYERS.map((l) => ({ slug: l.slug, id: l.href.slice(1) }));
-          const scrollY = window.scrollY + 120;
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const el = document.getElementById(sections[i].id);
+          setIsScrolled(window.scrollY > 50);
+          const scrollY = window.scrollY + 140;
+          for (let i = LAYERS.length - 1; i >= 0; i--) {
+            const el = document.getElementById(LAYERS[i].href.slice(1));
             if (el && el.offsetTop <= scrollY) {
-              setCurrentLayer(sections[i].slug);
+              setCurrentSlug(LAYERS[i].slug);
               break;
             }
           }
@@ -46,88 +46,129 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled
-        ? "glass-nav py-3 border-b border-white/5 shadow-lg shadow-black/20"
-        : "bg-transparent py-6 border-transparent"
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "glass-nav py-3 shadow-2xl shadow-black/40" : "bg-transparent py-6"
         }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
-        {/* Logo / Brand */}
-        <Link
-          href="#home"
-          className="group flex flex-col items-start gap-1"
-        >
-          <span className="text-lg font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors duration-300">
-            Evan M. Shuvo
-          </span>
-          <span className="text-xs font-medium tracking-wide text-zinc-500 hidden sm:block uppercase"> {"// System Architect"}</span>
+      <div className="section-container flex items-center justify-between">
+        {/* Logo */}
+        <Link href="#home" className="group flex items-center gap-3">
+          <div className="relative w-9 h-9">
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 opacity-80 group-hover:opacity-100 transition-opacity blur-[2px]" />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center">
+              <span className="text-white font-black text-sm tracking-widest">ES</span>
+            </div>
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="text-sm font-bold text-white tracking-tight">Evan Shuvo</span>
+            <span className="text-[10px] text-zinc-500 font-medium mt-0.5">Cloud · AI · Systems</span>
+          </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/50 p-1 rounded-full border border-white/5 backdrop-blur-md">
+        {/* Desktop Nav pill */}
+        <nav className="hidden xl:flex items-center gap-0.5 glass rounded-full px-2 py-1.5 border border-white/5">
           {LAYERS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${currentLayer === link.slug
-                ? "text-white bg-white/10 shadow-sm"
-                : "text-zinc-400 hover:text-white hover:bg-white/5"
+              className={`relative px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 ${currentSlug === link.slug
+                  ? "text-white"
+                  : "text-zinc-400 hover:text-white"
                 }`}
             >
-              {link.label}
+              {currentSlug === link.slug && (
+                <motion.span
+                  layoutId="nav-indicator"
+                  className="absolute inset-0 rounded-full bg-white/10"
+                  transition={{ type: "spring", stiffness: 380, damping: 36 }}
+                />
+              )}
+              <span className="relative z-10">{link.label}</span>
             </Link>
           ))}
         </nav>
 
-        {/* Call to Action & Mobile Toggle */}
-        <div className="flex items-center gap-4">
+        {/* Right: CTA + burger */}
+        <div className="flex items-center gap-3">
           <Link
-            href="mailto:emshuvo@aimlake.com"
-            className="hidden md:flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-full transition-colors duration-300 shadow-md shadow-blue-500/20"
+            href="https://aimlake.com/contact-us"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex btn-primary text-xs px-5 py-2.5"
           >
             Connect
           </Link>
+
           <button
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-full bg-zinc-900 border border-white/10 hover:bg-zinc-800 transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle Navigation"
+            onClick={() => setIsMobileMenuOpen((v) => !v)}
+            className="xl:hidden w-10 h-10 rounded-full glass border border-white/8 flex flex-col items-center justify-center gap-1.5 hover:border-white/20 transition-colors"
+            aria-label="Menu"
           >
-            <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[1px]' : '-translate-y-1'}`} />
-            <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
-            <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[1px] absolute' : 'translate-y-1'}`} />
+            <motion.span
+              animate={isMobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-5 bg-white origin-center"
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              animate={isMobileMenuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+              className="block h-0.5 w-5 bg-white"
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              animate={isMobileMenuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-5 bg-white origin-center"
+              transition={{ duration: 0.3 }}
+            />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden absolute top-full left-0 w-full overflow-hidden transition-all duration-500 ease-in-out glass-nav border-t border-white/5 ${isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-          }`}
-      >
-        <div className="flex flex-col py-4 px-6 space-y-2">
-          {LAYERS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`block px-4 py-3 text-sm font-medium rounded-xl transition-colors ${currentLayer === link.slug
-                ? "bg-white/10 text-white"
-                : "text-zinc-400 hover:bg-white/5 hover:text-white"
-                }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="mailto:emshuvo@aimlake.com"
-            className="block px-4 py-3 mt-4 text-sm font-semibold text-center text-white bg-blue-600 rounded-xl"
-            onClick={() => setIsMobileMenuOpen(false)}
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="xl:hidden overflow-hidden glass-nav border-t border-white/5"
           >
-            Connect
-          </Link>
-        </div>
-      </div>
-    </header>
+            <div className="section-container py-6 flex flex-col gap-1">
+              {LAYERS.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04, duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${currentSlug === link.slug
+                        ? "bg-white/10 text-white"
+                        : "text-zinc-400 hover:text-white hover:bg-white/5"
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <Link
+                href="https://aimlake.com/contact-us"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="btn-primary mt-4 text-sm"
+              >
+                Connect
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

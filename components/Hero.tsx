@@ -1,85 +1,221 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import ParticleField from "./3D/ParticleField";
+import { motion } from "framer-motion";
 
-const SIGNATURE = "Think in systems & strategic infrastructure.";
+const FloatingOrb = dynamic(() => import("./3D/FloatingOrb"), { ssr: false });
+
+const STATS = [
+  { value: "5+", label: "Years Experience" },
+  { value: "50+", label: "Live Deployments" },
+  { value: "5+", label: "Organizations" },
+  { value: "2", label: "Ventures Founded" },
+];
+
+const ROLES = [
+  "Cloud Security Engineer",
+  "System Architect",
+  "Full-Stack Developer",
+  "AI Automation Expert",
+  "CEO & Founder",
+];
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [charIndex, setCharIndex] = useState(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  useEffect(() => { setMounted(true); }, []);
+
+  // Typewriter cycle through ROLES
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    const current = ROLES[roleIndex];
+    if (!isDeleting) {
+      if (charIndex < current.length) {
+        timeoutRef.current = setTimeout(() => {
+          setDisplayText(current.slice(0, charIndex + 1));
+          setCharIndex((c) => c + 1);
+        }, 60);
+      } else {
+        timeoutRef.current = setTimeout(() => setIsDeleting(true), 1800);
+      }
+    } else {
+      if (charIndex > 0) {
+        timeoutRef.current = setTimeout(() => {
+          setDisplayText(current.slice(0, charIndex - 1));
+          setCharIndex((c) => c - 1);
+        }, 35);
+      } else {
+        setIsDeleting(false);
+        setRoleIndex((i) => (i + 1) % ROLES.length);
+      }
+    }
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+  }, [charIndex, isDeleting, roleIndex]);
+
+  if (!mounted) return null;
 
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden"
+      className="min-h-screen relative overflow-hidden aurora flex items-center"
     >
-      {/* Decorative Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none -z-10" />
+      {/* Interactive particle field */}
+      <ParticleField />
 
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-24 relative z-10 flex flex-col items-center text-center mt-16">
-        <div
-          className={`max-w-4xl mx-auto flex flex-col items-center transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-        >
-          {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-zinc-300">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Available for new opportunities
-          </div>
+      {/* Abstract decorative blobs */}
+      <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[100px] pointer-events-none" />
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-            Building scalable <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
-              digital ecosystems.
-            </span>
-          </h1>
+      <div className="section-container relative z-10 w-full pt-28 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-6 items-center min-h-[80vh]">
 
-          <p className="text-zinc-400 text-lg md:text-xl mb-12 max-w-2xl leading-relaxed">
-            I&apos;m <span className="text-zinc-200 font-semibold">Evan Mahmud Shuvo</span>. A Cloud Security Engineer, System Administrator, and Full-Stack Developer creating resilient architectures for the modern web.
-            <br className="mt-2 block" />
-            <span className="italic opacity-80">{SIGNATURE}</span>
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <Link
-              href="#expertise"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-black font-semibold hover:bg-zinc-200 transition-colors duration-300 flex items-center justify-center gap-2"
+          {/* ── Left: Text Content ─── */}
+          <div className="flex flex-col items-start">
+            {/* Status badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full glass border border-white/8"
             >
-              Explore Expertise
-            </Link>
-            <Link
-              href="mailto:emshuvo@aimlake.com"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 text-white font-medium border border-white/10 hover:bg-white/10 transition-colors duration-300 flex items-center justify-center gap-2"
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+              </span>
+              <span className="text-sm font-medium text-zinc-300">Open to strategic opportunities</span>
+            </motion.div>
+
+            {/* Eyebrow label */}
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="section-label"
             >
-              Get in Touch
-            </Link>
+              Evan Mahmud Shuvo · Toronto, Canada
+            </motion.span>
+
+            {/* Main headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] tracking-tight text-white mb-6"
+            >
+              Building the{" "}
+              <span className="gradient-text">digital <br className="hidden sm:block" /> infrastructure</span>{" "}
+              of tomorrow.
+            </motion.h1>
+
+            {/* Typewriter sub-role */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex items-center gap-2 mb-8 h-8"
+            >
+              <span className="text-lg font-medium text-zinc-400">/&gt;</span>
+              <span className="text-lg md:text-xl font-semibold text-violet-300 tracking-wide min-w-[260px]">
+                {displayText}
+                <span className="inline-block w-0.5 h-5 bg-violet-400 ml-0.5 animate-pulse align-middle" />
+              </span>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base md:text-lg text-zinc-400 max-w-xl leading-relaxed mb-10"
+            >
+              CEO of <span className="text-white font-medium">Aimlake Inc.</span> & <span className="text-white font-medium">Capitalizedmoney Inc.</span> — specializing in secure, scalable, AI-powered infrastructures that outlive trends and drive real-world impact.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-16"
+            >
+              <Link
+                href="https://aimlake.com/contact-us"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Start a Conversation
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+              <Link href="#expertise" className="btn-ghost">
+                View Expertise
+              </Link>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6 w-full max-w-lg"
+            >
+              {STATS.map((s, i) => (
+                <div key={i} className="flex flex-col">
+                  <span className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">{s.value}</span>
+                  <span className="text-xs font-medium text-zinc-500 uppercase tracking-wider mt-0.5">{s.label}</span>
+                </div>
+              ))}
+            </motion.div>
           </div>
 
-          {/* Stats section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-12 mt-20 pt-12 border-t border-white/10 w-full max-w-3xl">
-            {[
-              { label: "Experience", value: "5+ Years" },
-              { label: "Deployments", value: "50+" },
-              { label: "Organizations", value: "5+" },
-              { label: "Ventures", value: "2+" },
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <span className="text-3xl font-bold tracking-tight text-white mb-1">{stat.value}</span>
-                <span className="text-sm font-medium text-zinc-500 uppercase tracking-wider">{stat.label}</span>
-              </div>
-            ))}
-          </div>
+          {/* ── Right: 3D Orb ─── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="relative hidden lg:flex items-center justify-center"
+          >
+            <div className="relative w-[520px] h-[520px]">
+              {/* Glow rings */}
+              <div className="absolute inset-8 rounded-full bg-violet-600/10 blur-2xl animate-pulse-ring" />
+              <div className="absolute inset-0 rounded-full bg-blue-600/5 blur-3xl" />
+              <FloatingOrb />
+            </div>
 
+            {/* Floating info chip — top left */}
+            <motion.div
+              animate={{ y: [0, -12, 0], rotate: [-1, 1, -1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-8 -left-8 glass-card rounded-2xl px-4 py-3 min-w-[160px] shadow-2xl"
+            >
+              <p className="text-xs text-zinc-500 font-medium mb-1">Current Focus</p>
+              <p className="text-sm font-bold text-white">AI Infrastructure</p>
+            </motion.div>
+
+            {/* Floating info chip — bottom right  */}
+            <motion.div
+              animate={{ y: [0, 14, 0], rotate: [1, -1, 1] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-16 -right-4 glass-card rounded-2xl px-4 py-3 min-w-[180px] shadow-2xl"
+            >
+              <p className="text-xs text-zinc-500 font-medium mb-1">Based in</p>
+              <p className="text-sm font-bold text-white">Toronto 🇨🇦</p>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050508] to-transparent pointer-events-none" />
     </section>
   );
 }

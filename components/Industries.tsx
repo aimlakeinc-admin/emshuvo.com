@@ -1,153 +1,89 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import AsciiBanner from "./AsciiBanner";
+import { useRef, useState, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
 
 const industryCategories = [
-  { title: "Healthcare & Medical", items: ["Medical Clinics", "Dental Clinics", "Healthcare Providers", "Physiotherapy & Rehab", "Wellness Centers"] },
-  { title: "Legal & Law Enforcement", items: ["Law Firms", "Legal Advisors", "Regulatory & Compliance", "Law Enforcement Agencies"] },
-  { title: "Finance & Investment", items: ["FinTech", "Investment Firms", "Trading & Analytics", "Accounting & Tax"] },
-  { title: "Technology & SaaS", items: ["IT Companies", "AI & Automation Startups", "Software Dev", "Cybersecurity Teams"] },
-  { title: "Automotive", items: ["Garages & Service Centers", "Automotive Tech", "Fleet / Transportation"] },
-  { title: "Hospitality & Food", items: ["Restaurants & Chains", "Cloud Kitchens", "Franchise Operations"] },
-  { title: "SMBs", items: ["Retail", "E-commerce", "Service Providers", "Local Enterprises"] },
-  { title: "Education & Training", items: ["Schools & Colleges", "EdTech", "Coaching", "Corporate Training"] },
-  { title: "Real Estate & Construction", items: ["Real Estate", "Property Developers", "Architecture", "Construction"] },
-  { title: "Logistics & Supply Chain", items: ["Freight & Shipping", "Warehousing", "Courier", "Supply Chain"] },
-  { title: "Media, Marketing & Comms", items: ["Advertising", "PR & Media", "Influencer Marketing", "Video & Photo"] },
-  { title: "Energy & Environment", items: ["Renewable Energy", "Oil, Gas & Utilities", "Environmental Consulting"] },
-  { title: "Fashion & Lifestyle", items: ["Apparel", "Beauty & Cosmetics", "Fitness & Sports", "Luxury Retail"] },
-  { title: "Entertainment & Events", items: ["Event Management", "Music & Film", "Theaters & Venues", "Gaming & Esports"] },
-  { title: "Manufacturing & Industrial", items: ["Manufacturing", "Industrial Equipment", "Automation & Robotics", "3D Printing"] },
+  { title: "Healthcare & Medical", emoji: "🏥", items: ["Medical Clinics", "Dental", "Physiotherapy", "Wellness"] },
+  { title: "Legal & Compliance", emoji: "⚖️", items: ["Law Firms", "Legal Advisors", "Regulatory"] },
+  { title: "Finance & Investment", emoji: "📈", items: ["FinTech", "Investment Firms", "Trading", "Accounting"] },
+  { title: "Technology & SaaS", emoji: "💻", items: ["IT Companies", "AI Startups", "Cybersecurity Teams"] },
+  { title: "Automotive", emoji: "🚗", items: ["Garages & Service", "Automotive Tech", "Fleet / Transport"] },
+  { title: "Hospitality & Food", emoji: "🍽️", items: ["Restaurants", "Cloud Kitchens", "Franchise Ops"] },
+  { title: "SMBs & Retail", emoji: "🏪", items: ["Retail", "E-commerce", "Service Providers"] },
+  { title: "Education & Training", emoji: "🎓", items: ["Schools", "EdTech", "Corporate Training"] },
+  { title: "Real Estate", emoji: "🏢", items: ["Property Dev", "Architecture", "Construction"] },
+  { title: "Logistics", emoji: "📦", items: ["Freight", "Warehousing", "Supply Chain"] },
+  { title: "Media & Marketing", emoji: "📣", items: ["Advertising", "PR & Media", "Video & Photo"] },
+  { title: "Energy & Environment", emoji: "⚡", items: ["Renewable Energy", "Oil & Gas", "Environmental"] },
+  { title: "Fashion & Lifestyle", emoji: "👗", items: ["Apparel", "Beauty", "Fitness", "Luxury"] },
+  { title: "Entertainment", emoji: "🎬", items: ["Event Management", "Music & Film", "Gaming"] },
+  { title: "Manufacturing", emoji: "🏭", items: ["Manufacturing", "Robotics", "3D Printing"] },
 ];
 
-const MID = Math.ceil(industryCategories.length / 2);
-const LEFT_CATS = industryCategories.slice(0, MID);
-const RIGHT_CATS = industryCategories.slice(MID);
-
-const KALI_GREEN = "#00ff41";
-const KALI_BG = "#0d1117";
-
-function DraggableTerminal({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const dragRef = useRef({ startX: 0, startY: 0, startPosX: 0, startPosY: 0 });
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest("a, button")) return;
-    setIsDragging(true);
-    dragRef.current = { startX: e.clientX, startY: e.clientY, startPosX: pos.x, startPosY: pos.y };
-  };
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { startX, startY, startPosX, startPosY } = dragRef.current;
-      setPos({
-        x: startPosX + (e.clientX - startX),
-        y: startPosY + (e.clientY - startY),
-      });
-    };
-    const handleMouseUp = () => setIsDragging(false);
-    if (!isDragging) return;
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isDragging]);
-
-  return (
-    <div
-      className="relative flex-1 min-w-0 rounded-lg overflow-hidden border font-sans text-sm flex flex-col shadow-lg transition-shadow"
-      style={{
-        backgroundColor: KALI_BG,
-        borderColor: "rgba(0, 255, 65, 0.28)",
-        minHeight: "420px",
-        maxHeight: "70vh",
-        zIndex: isDragging ? 20 : 10,
-        transform: `translate(${pos.x}px, ${pos.y}px)`,
-      }}
-    >
-      <div
-        className="flex items-center justify-between px-3 py-2 border-b cursor-grab active:cursor-grabbing select-none"
-        style={{
-          backgroundColor: "rgba(20, 22, 28, 0.98)",
-          borderColor: "rgba(0, 255, 65, 0.2)",
-        }}
-        onMouseDown={handleMouseDown}
-      >
-        <div className="flex items-center gap-2">
-          <div className="flex gap-1">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-          </div>
-          <span className="ml-2 text-xs font-medium opacity-80" style={{ color: KALI_GREEN }}>
-            root@evan:~ — {title}
-          </span>
-        </div>
-      </div>
-      <div
-        className="flex-1 overflow-y-auto p-4 text-zinc-400/95"
-        style={{ color: KALI_GREEN }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function IndustryList({ categories }: { categories: typeof LEFT_CATS }) {
-  return (
-    <div className="space-y-2">
-      {categories.map((cat, i) => (
-        <div key={i}>
-          <div className="text-amber-400/90 font-semibold text-xs">[{cat.title}]</div>
-          <ul className="pl-2 mt-0.5 space-y-0.5 text-xs">
-            {cat.items.map((item, j) => (
-              <li key={j} className="flex items-center gap-2">
-                <span className="text-green-500">▸</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
+const COLORS = [
+  "border-violet-500/30 hover:border-violet-400/60",
+  "border-blue-500/30 hover:border-blue-400/60",
+  "border-cyan-500/30 hover:border-cyan-400/60",
+  "border-emerald-500/30 hover:border-emerald-400/60",
+  "border-rose-500/30 hover:border-rose-400/60",
+];
 
 export default function Industries() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
-    <section
-      id="industries"
-      className="relative py-8 md:py-12 min-h-[85vh]"
-      style={{ background: "linear-gradient(180deg, #0a0e14 0%, #0d1117 100%)" }}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AsciiBanner title="industries_served" visible={mounted} />
-        <p className="text-center text-zinc-400 text-sm mb-6 font-sans">
-          Services across diverse industries. Drag title bar to move.
-        </p>
-      </div>
+    <section id="industries" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-cyan-600/6 rounded-full blur-[130px] pointer-events-none" />
 
-      <div className="w-full max-w-6xl mx-auto px-4 flex gap-4" style={{ minHeight: "520px" }}>
-        <DraggableTerminal title="industries_1">
-          <IndustryList categories={LEFT_CATS} />
-        </DraggableTerminal>
-        <DraggableTerminal title="industries_2">
-          <IndustryList categories={RIGHT_CATS} />
-        </DraggableTerminal>
+      <div className="section-container" ref={ref}>
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            className="section-label"
+          >
+            Industries Served
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="section-heading text-white"
+          >
+            Where I{" "}
+            <span className="gradient-text">operate</span>.
+          </motion.h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {industryCategories.map((cat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.85, y: 20 }}
+              animate={mounted && inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ scale: 1.03, y: -4 }}
+              className={`glass rounded-2xl p-5 border ${COLORS[i % COLORS.length]} transition-all duration-300 cursor-default`}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">{cat.emoji}</span>
+                <h3 className="text-xs font-bold text-white leading-tight">{cat.title}</h3>
+              </div>
+              <ul className="space-y-1">
+                {cat.items.map((item, j) => (
+                  <li key={j} className="text-[11px] text-zinc-500 flex items-center gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-zinc-600 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
