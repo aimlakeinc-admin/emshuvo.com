@@ -44,7 +44,7 @@ export default function Principles() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-zinc-400 mt-4 max-w-md mx-auto"
+            className="text-zinc-300 mt-4 max-w-md mx-auto"
           >
             Not resume bullets. Operating principles.
           </motion.p>
@@ -64,9 +64,9 @@ export default function Principles() {
               <div className="relative z-10">
                 <div className="flex items-center gap-2.5 mb-3">
                   <span className="text-2xl">{b.emoji}</span>
-                  <h3 className="text-sm font-bold text-white">{b.topic}</h3>
+                  <h3 className="text-lg md:text-base font-bold text-white">{b.topic}</h3>
                 </div>
-                <p className="text-xs text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">{b.text}</p>
+                <p className="text-sm md:text-xs text-zinc-300 leading-relaxed group-hover:text-zinc-300 transition-colors">{b.text}</p>
               </div>
             </motion.div>
           ))}

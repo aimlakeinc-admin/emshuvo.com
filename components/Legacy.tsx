@@ -52,7 +52,7 @@ export default function Legacy() {
               className="glass-card rounded-2xl p-6"
             >
               <h3 className="text-base font-bold text-white mb-2">{p.title}</h3>
-              <p className="text-sm text-zinc-400 leading-relaxed">{p.body}</p>
+              <p className="text-base md:text-sm text-zinc-300 leading-relaxed">{p.body}</p>
             </motion.div>
           ))}
         </div>
@@ -64,7 +64,7 @@ export default function Legacy() {
           transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-center"
         >
-          <p className="text-zinc-400 text-lg mb-8 max-w-md mx-auto">
+          <p className="text-zinc-300 text-lg mb-8 max-w-md mx-auto">
             Ready to build something that lasts?
           </p>
           <Link

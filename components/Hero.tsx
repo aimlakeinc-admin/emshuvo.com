@@ -89,7 +89,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
               </span>
-              <span className="text-sm font-medium text-zinc-300">Open to strategic opportunities</span>
+              <span className="text-base md:text-sm font-medium text-zinc-300">Open to strategic opportunities</span>
             </motion.div>
 
             {/* Eyebrow label */}
@@ -121,7 +121,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex items-center gap-2 mb-8 h-8"
             >
-              <span className="text-lg font-medium text-zinc-400">/&gt;</span>
+              <span className="text-lg font-medium text-zinc-300">/&gt;</span>
               <span className="text-lg md:text-xl font-semibold text-violet-300 tracking-wide min-w-[260px]">
                 {displayText}
                 <span className="inline-block w-0.5 h-5 bg-violet-400 ml-0.5 animate-pulse align-middle" />
@@ -133,7 +133,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base md:text-lg text-zinc-400 max-w-xl leading-relaxed mb-10"
+              className="text-base md:text-lg text-zinc-300 max-w-xl leading-relaxed mb-10"
             >
               CEO of <span className="text-white font-medium">Aimlake Inc.</span> & <span className="text-white font-medium">Capitalizedmoney Inc.</span> — specializing in secure, scalable, AI-powered infrastructures that outlive trends and drive real-world impact.
             </motion.p>
@@ -171,7 +171,7 @@ export default function Hero() {
               {STATS.map((s, i) => (
                 <div key={i} className="flex flex-col">
                   <span className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">{s.value}</span>
-                  <span className="text-xs font-medium text-zinc-500 uppercase tracking-wider mt-0.5">{s.label}</span>
+                  <span className="text-sm md:text-xs font-medium text-zinc-400 uppercase tracking-wider mt-0.5">{s.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -197,8 +197,8 @@ export default function Hero() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute top-8 -left-8 glass-card rounded-2xl px-4 py-3 min-w-[160px] shadow-2xl"
             >
-              <p className="text-xs text-zinc-500 font-medium mb-1">Current Focus</p>
-              <p className="text-sm font-bold text-white">AI Infrastructure</p>
+              <p className="text-sm md:text-xs text-zinc-400 font-medium mb-1">Current Focus</p>
+              <p className="text-lg md:text-base font-bold text-white">AI Infrastructure</p>
             </motion.div>
 
             {/* Floating info chip — bottom right  */}
@@ -207,8 +207,8 @@ export default function Hero() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute bottom-16 -right-4 glass-card rounded-2xl px-4 py-3 min-w-[180px] shadow-2xl"
             >
-              <p className="text-xs text-zinc-500 font-medium mb-1">Based in</p>
-              <p className="text-sm font-bold text-white">Toronto 🇨🇦</p>
+              <p className="text-sm md:text-xs text-zinc-400 font-medium mb-1">Based in</p>
+              <p className="text-lg md:text-base font-bold text-white">Toronto 🇨🇦</p>
             </motion.div>
           </motion.div>
         </div>

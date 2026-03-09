@@ -23,7 +23,7 @@ const LINES: { text: string; delay: number; className?: string }[] = [
   { text: "Cloud Security · SysAdmin · Full-Stack · AI", delay: 400, className: "text-gray-400" },
   { text: "", delay: 300 },
   { text: "This was a showcase of Evan's expertise. Scroll to explore.", delay: 600, className: "text-purple-300/90 italic" },
-  { text: "CREATIVITY · PRODUCTIVITY · ENGINEERING", delay: 400, className: "text-green-400/80 text-sm tracking-widest" },
+  { text: "CREATIVITY · PRODUCTIVITY · ENGINEERING", delay: 400, className: "text-green-400/80 text-base md:text-sm tracking-widest" },
 ];
 
 const FAKE_IPS = ["192.168.4.xxx", "10.0.2.xxx", "172.16.xxx.1"];
@@ -86,7 +86,7 @@ export default function HackIntro({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[10000] flex flex-col bg-black text-green-400/95 overflow-hidden font-sans text-sm md:text-base select-none"
+      className="fixed inset-0 z-[10000] flex flex-col bg-black text-green-400/95 overflow-hidden font-sans text-base md:text-sm md:text-base select-none"
       role="presentation"
       aria-label="Cybersecurity showcase intro"
     >
@@ -116,7 +116,7 @@ export default function HackIntro({ onComplete }: { onComplete: () => void }) {
       <div className="relative z-20 flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-12 py-12">
         <div className="max-w-2xl mx-auto w-full">
           {/* Header */}
-          <div className="mb-6 flex items-center gap-2 text-red-400/80 text-xs uppercase tracking-widest">
+          <div className="mb-6 flex items-center gap-2 text-red-400/80 text-sm md:text-xs uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             SECURE CONNECTION — ENCRYPTED
           </div>
@@ -165,7 +165,7 @@ export default function HackIntro({ onComplete }: { onComplete: () => void }) {
           <button
             type="button"
             onClick={handleSkip}
-            className="px-6 py-2 rounded-lg border border-gray-600 text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 text-sm"
+            className="px-6 py-2 rounded-lg border border-gray-600 text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 text-base md:text-sm"
           >
             Skip intro →
           </button>

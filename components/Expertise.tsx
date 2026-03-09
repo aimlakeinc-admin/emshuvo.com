@@ -86,7 +86,7 @@ function TiltCard({ area, index, inView }: { area: typeof expertiseAreas[0]; ind
       <div className="relative z-10">
         <span className="text-4xl mb-5 block">{area.icon}</span>
         <h3 className="text-lg font-bold text-white mb-3 tracking-tight">{area.title}</h3>
-        <p className="text-sm text-zinc-400 leading-relaxed">{area.desc}</p>
+        <p className="text-base md:text-sm text-zinc-300 leading-relaxed">{area.desc}</p>
       </div>
     </motion.div>
   );

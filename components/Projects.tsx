@@ -83,11 +83,11 @@ export default function Projects() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-lg font-extrabold text-white mb-1">{c.name}</h3>
-                    <p className="text-xs text-zinc-500 font-semibold uppercase tracking-widest">{c.role}</p>
+                    <p className="text-sm md:text-xs text-zinc-400 font-semibold uppercase tracking-widest">{c.role}</p>
                   </div>
                 </div>
 
-                <p className="text-zinc-400 text-sm leading-relaxed mb-6">{c.description}</p>
+                <p className="text-zinc-300 text-base md:text-sm leading-relaxed mb-6">{c.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {c.industries.map((ind, j) => (
@@ -95,7 +95,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-zinc-400 group-hover:text-white transition-colors">
+                <div className="flex items-center gap-1.5 text-sm md:text-xs font-semibold text-zinc-300 group-hover:text-white transition-colors">
                   <span>{c.website.replace("https://www.", "")}</span>
                   <svg className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
                     <path d="M7 17L17 7M17 7H7M17 7v10" strokeLinecap="round" strokeLinejoin="round" />

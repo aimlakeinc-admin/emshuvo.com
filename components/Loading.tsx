@@ -40,7 +40,7 @@ export default function Loading() {
 
       <div className="relative z-10 text-center px-4">
         {/* ASCII-style header */}
-        <pre className="text-zinc-300 text-xs md:text-sm mb-6 tracking-widest whitespace-pre">
+        <pre className="text-zinc-300 text-sm md:text-xs md:text-base md:text-sm mb-6 tracking-widest whitespace-pre">
           {`╔═══════════════════════════════════════════════╗
 ║  INITIALIZING_MASTERPIECE  ·  EMSHUVO  ║
 ╚═══════════════════════════════════════════════╝`}
@@ -49,7 +49,7 @@ export default function Loading() {
         <h1 className="text-2xl md:text-4xl font-bold text-blue-400 mb-6">
           Welcome to Evan&apos;s Heaven
         </h1>
-        <p className="text-zinc-300 text-sm mb-8">Ha ha ha</p>
+        <p className="text-zinc-300 text-base md:text-sm mb-8">Ha ha ha</p>
 
         {/* Progress bar */}
         <div className="w-64 md:w-96 mx-auto mb-3">
@@ -62,7 +62,7 @@ export default function Loading() {
             </div>
           </div>
         </div>
-        <p className="text-blue-300 font-bold text-sm">{progress}%</p>
+        <p className="text-blue-300 font-bold text-base md:text-sm">{progress}%</p>
       </div>
 
       {/* Scan line */}

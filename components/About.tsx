@@ -50,7 +50,7 @@ export default function About() {
                       className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/3 border border-white/5 hover:border-violet-500/30 transition-colors"
                     >
                       <span className="text-3xl mb-2">{h.icon}</span>
-                      <span className="text-xs font-semibold text-zinc-400 text-center">{h.label}</span>
+                      <span className="text-sm md:text-xs font-semibold text-zinc-300 text-center">{h.label}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -59,7 +59,7 @@ export default function About() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400" />
                   </div>
-                  <span className="text-sm text-zinc-400 font-medium">Available worldwide · Remote-first</span>
+                  <span className="text-base md:text-sm text-zinc-300 font-medium">Available worldwide · Remote-first</span>
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function About() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.7, delay: 0.2 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-zinc-400 leading-relaxed text-base md:text-lg"
+                  className="text-zinc-300 leading-relaxed text-base md:text-lg"
                 >
                   {para}
                 </motion.p>

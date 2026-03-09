@@ -14,7 +14,7 @@ const BOOT_LINES: { text: string; delay: number; className?: string }[] = [
   { text: "[ OK ] All layers mounted.", delay: 400, className: "text-blue-400 font-semibold" },
   { text: "", delay: 500 },
   { text: "Consciousness online.", delay: 600, className: "text-blue-300 font-bold" },
-  { text: "Scroll to navigate layers.", delay: 400, className: "text-zinc-400 text-sm" },
+  { text: "Scroll to navigate layers.", delay: 400, className: "text-zinc-300 text-base md:text-sm" },
 ];
 
 export default function BootIntro({ onComplete }: { onComplete: () => void }) {
@@ -68,7 +68,7 @@ export default function BootIntro({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="fixed inset-0 z-[10000] flex flex-col bg-zinc-950 text-blue-400 font-sans text-sm md:text-base overflow-hidden">
+    <div className="fixed inset-0 z-[10000] flex flex-col bg-zinc-950 text-blue-400 font-sans text-base md:text-sm md:text-base overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
@@ -101,7 +101,7 @@ export default function BootIntro({ onComplete }: { onComplete: () => void }) {
           <button
             type="button"
             onClick={handleSkip}
-            className="px-4 py-2 text-zinc-400 hover:text-blue-400 text-xs border border-white/10 hover:border-white/10 transition-all"
+            className="px-4 py-2 text-zinc-300 hover:text-blue-400 text-sm md:text-xs border border-white/10 hover:border-white/10 transition-all"
           >
             skip boot
           </button>

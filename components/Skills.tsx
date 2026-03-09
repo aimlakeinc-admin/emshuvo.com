@@ -83,7 +83,7 @@ export default function Skills() {
                 <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center text-lg shadow-lg`}>
                   {cat.emoji}
                 </div>
-                <h3 className="text-sm font-bold text-white">{cat.title}</h3>
+                <h3 className="text-lg md:text-base font-bold text-white">{cat.title}</h3>
               </div>
 
               <ul className="space-y-2">
@@ -93,7 +93,7 @@ export default function Skills() {
                     initial={{ opacity: 0, x: -8 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: i * 0.08 + j * 0.05 + 0.2 }}
-                    className="flex items-center gap-2.5 text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors"
+                    className="flex items-center gap-2.5 text-base md:text-sm text-zinc-300 group-hover:text-zinc-300 transition-colors"
                   >
                     <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${cat.color} shrink-0`} />
                     {item}

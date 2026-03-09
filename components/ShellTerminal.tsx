@@ -73,18 +73,18 @@ export default function ShellTerminal() {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-20 right-6 z-40 w-full max-w-md bg-zinc-950 border border-white/10 shadow-[0_0_30px_rgba(0,255,65,0.1)] font-sans text-sm overflow-hidden rounded">
-          <div className="px-3 py-2 border-b border-white/10 text-zinc-300 text-xs">
+        <div className="fixed bottom-20 right-6 z-40 w-full max-w-md bg-zinc-950 border border-white/10 shadow-[0_0_30px_rgba(0,255,65,0.1)] font-sans text-base md:text-sm overflow-hidden rounded">
+          <div className="px-3 py-2 border-b border-white/10 text-zinc-300 text-sm md:text-xs">
             shell — type help
           </div>
-          <div className="p-3 max-h-64 overflow-y-auto text-zinc-400">
+          <div className="p-3 max-h-64 overflow-y-auto text-zinc-300">
             {history.map((h, i) => (
               <div key={i} className="mb-2">
                 <div className="text-blue-300">{PROMPT}{h.cmd}</div>
-                <pre className="whitespace-pre-wrap text-zinc-400 text-xs mt-0.5 font-sans">{h.out}</pre>
+                <pre className="whitespace-pre-wrap text-zinc-300 text-sm md:text-xs mt-0.5 font-sans">{h.out}</pre>
               </div>
             ))}
-            {currentOut && <pre className="whitespace-pre-wrap text-zinc-400 text-xs">{currentOut}</pre>}
+            {currentOut && <pre className="whitespace-pre-wrap text-zinc-300 text-sm md:text-xs">{currentOut}</pre>}
             <div className="flex items-center gap-1 mt-1">
               <span className="text-blue-300 shrink-0">{PROMPT}</span>
               <input

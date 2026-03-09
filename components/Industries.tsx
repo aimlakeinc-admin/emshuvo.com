@@ -71,11 +71,11 @@ export default function Industries() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-xl">{cat.emoji}</span>
-                <h3 className="text-xs font-bold text-white leading-tight">{cat.title}</h3>
+                <h3 className="text-sm md:text-xs font-bold text-white leading-tight">{cat.title}</h3>
               </div>
               <ul className="space-y-1">
                 {cat.items.map((item, j) => (
-                  <li key={j} className="text-[11px] text-zinc-500 flex items-center gap-1.5">
+                  <li key={j} className="text-[11px] text-zinc-400 flex items-center gap-1.5">
                     <span className="w-1 h-1 rounded-full bg-zinc-600 shrink-0" />
                     {item}
                   </li>

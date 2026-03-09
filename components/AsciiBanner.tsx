@@ -19,7 +19,7 @@ export default function AsciiBanner({ title, visible }: { title: string; visible
   if (!visible) return null;
   return (
     <pre
-      className="ascii-reveal text-center font-sans text-xs md:text-sm mb-4 md:mb-6 whitespace-pre opacity-90"
+      className="ascii-reveal text-center font-sans text-sm md:text-xs md:text-base md:text-sm mb-4 md:mb-6 whitespace-pre opacity-90"
       style={{ color: KALI_GREEN, textShadow: "0 0 8px rgba(0,255,0,0.3)" }}
       aria-hidden
     >

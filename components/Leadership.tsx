@@ -93,12 +93,12 @@ export default function Leadership() {
                 <div className="flex items-start justify-between mb-5">
                   <div>
                     <h3 className="text-xl font-extrabold text-white mb-1">{company.name}</h3>
-                    <p className="text-xs text-zinc-500 font-semibold uppercase tracking-wider">{company.role}</p>
+                    <p className="text-sm md:text-xs text-zinc-400 font-semibold uppercase tracking-wider">{company.role}</p>
                   </div>
                   <span className={`pill-tag shrink-0`} style={{ fontSize: "10px" }}>{company.tag}</span>
                 </div>
 
-                <p className="text-zinc-400 text-sm leading-relaxed flex-1 mb-6">{company.description}</p>
+                <p className="text-zinc-300 text-base md:text-sm leading-relaxed flex-1 mb-6">{company.description}</p>
 
                 {/* Links */}
                 <div className="space-y-2 pt-4 border-t border-white/5">
@@ -106,7 +106,7 @@ export default function Leadership() {
                     href={company.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs text-zinc-400 hover:text-white group/link transition-colors"
+                    className="flex items-center gap-2 text-sm md:text-xs text-zinc-300 hover:text-white group/link transition-colors"
                   >
                     <span className={`w-4 h-4 rounded-full bg-gradient-to-br ${company.gradient} opacity-70 group-hover/link:opacity-100 transition-opacity`} />
                     {company.website.replace("https://www.", "")}
@@ -116,7 +116,7 @@ export default function Leadership() {
                   </a>
                   <a
                     href={`mailto:${company.email}`}
-                    className="flex items-center gap-2 text-xs text-zinc-400 hover:text-white group/link transition-colors"
+                    className="flex items-center gap-2 text-sm md:text-xs text-zinc-300 hover:text-white group/link transition-colors"
                   >
                     <svg className="w-3.5 h-3.5 opacity-50 group-hover/link:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                       <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" />

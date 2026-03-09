@@ -9,8 +9,8 @@
   --accent-cyan: #06b6d4;
   --bg-base: #050508;
   --bg-surface: #0c0c12;
-  --text-primary: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-primary: #ffffff;
+  --text-muted: #d4d4d8;
 }
 
 * {
@@ -279,17 +279,16 @@ body {
   perspective: 1200px;
 }
 
-/* ── Section Utilities ─────────────────────── */
 .section-container {
-  @apply container mx-auto px-6 sm:px-8 lg:px-12;
+  @apply container mx-auto px-5 sm:px-8 lg:px-12 max-w-7xl;
 }
 
 .section-heading {
-  @apply text-4xl md:text-6xl font-extrabold tracking-tight leading-none;
+  @apply text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1];
 }
 
 .section-label {
-  @apply text-xs font-semibold tracking-[0.3em] uppercase text-violet-400 mb-4 block;
+  @apply text-sm md:text-xs font-bold tracking-[0.25em] uppercase text-violet-400 mb-4 md:mb-5 block;
 }
 
 /* ── Badge / Tag ─────────────────────────── */

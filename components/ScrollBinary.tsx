@@ -32,7 +32,7 @@ export default function ScrollBinary() {
       {[...Array(12)].map((_, i) => (
         <div
           key={i}
-          className="absolute text-blue-400 font-sans text-xs animate-code-rain"
+          className="absolute text-blue-400 font-sans text-sm md:text-xs animate-code-rain"
           style={{
             left: `${(i * 8) % 100}%`,
             animationDelay: `${i * 0.3}s`,

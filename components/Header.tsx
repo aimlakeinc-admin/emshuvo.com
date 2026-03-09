@@ -59,12 +59,12 @@ export default function Header() {
           <div className="relative w-9 h-9">
             <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 opacity-80 group-hover:opacity-100 transition-opacity blur-[2px]" />
             <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center">
-              <span className="text-white font-black text-sm tracking-widest">ES</span>
+              <span className="text-white font-black text-base md:text-sm tracking-widest">ES</span>
             </div>
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-sm font-bold text-white tracking-tight">Evan Shuvo</span>
-            <span className="text-[10px] text-zinc-500 font-medium mt-0.5">Cloud · AI · Systems</span>
+            <span className="text-lg md:text-base font-bold text-white tracking-tight">Evan Shuvo</span>
+            <span className="text-[10px] text-zinc-400 font-medium mt-0.5">Cloud · AI · Systems</span>
           </div>
         </Link>
 
@@ -74,9 +74,9 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`relative px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 ${currentSlug === link.slug
+              className={`relative px-3.5 py-1.5 text-sm md:text-xs font-semibold rounded-full transition-all duration-300 ${currentSlug === link.slug
                   ? "text-white"
-                  : "text-zinc-400 hover:text-white"
+                  : "text-zinc-300 hover:text-white"
                 }`}
             >
               {currentSlug === link.slug && (
@@ -97,7 +97,7 @@ export default function Header() {
             href="https://aimlake.com/contact-us"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex btn-primary text-xs px-5 py-2.5"
+            className="hidden md:inline-flex btn-primary text-sm md:text-xs px-5 py-2.5"
           >
             Connect
           </Link>
@@ -147,9 +147,9 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${currentSlug === link.slug
+                    className={`block px-4 py-2.5 rounded-xl text-base md:text-sm font-medium transition-colors ${currentSlug === link.slug
                         ? "bg-white/10 text-white"
-                        : "text-zinc-400 hover:text-white hover:bg-white/5"
+                        : "text-zinc-300 hover:text-white hover:bg-white/5"
                       }`}
                   >
                     {link.label}
@@ -161,7 +161,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-primary mt-4 text-sm"
+                className="btn-primary mt-4 text-base md:text-sm"
               >
                 Connect
               </Link>

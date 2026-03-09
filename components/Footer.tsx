@@ -27,25 +27,25 @@ export default function Footer() {
               <div className="relative w-10 h-10">
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 opacity-80 group-hover:opacity-100 transition-opacity blur-[2px]" />
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center">
-                  <span className="text-white font-black text-sm tracking-widest">ES</span>
+                  <span className="text-white font-black text-base md:text-sm tracking-widest">ES</span>
                 </div>
               </div>
               <span className="text-base font-bold text-white">Evan Shuvo</span>
             </Link>
-            <p className="text-sm text-zinc-500 leading-relaxed max-w-xs">
+            <p className="text-base md:text-sm text-zinc-400 leading-relaxed max-w-xs">
               Cloud Security Engineer, System Architect & Full-Stack Developer based in Toronto, Canada.
             </p>
           </div>
 
           {/* Quick links */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-4">Navigation</p>
+            <p className="text-sm md:text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-4">Navigation</p>
             <div className="grid grid-cols-2 gap-2">
               {LINKS.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="text-sm text-zinc-400 hover:text-white transition-colors"
+                  className="text-base md:text-sm text-zinc-300 hover:text-white transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -55,11 +55,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-4">Connect</p>
+            <p className="text-sm md:text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-4">Connect</p>
             <div className="space-y-2">
-              <a href="mailto:emshuvo@aimlake.com" className="block text-sm text-zinc-400 hover:text-white transition-colors">emshuvo@aimlake.com</a>
-              <a href="mailto:emshuvo@capitalizedmoney.com" className="block text-sm text-zinc-400 hover:text-white transition-colors">emshuvo@capitalizedmoney.com</a>
-              <a href="https://aimlake.com/contact-us" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 mt-3 btn-primary text-xs px-4 py-2">
+              <a href="mailto:emshuvo@aimlake.com" className="block text-base md:text-sm text-zinc-300 hover:text-white transition-colors">emshuvo@aimlake.com</a>
+              <a href="mailto:emshuvo@capitalizedmoney.com" className="block text-base md:text-sm text-zinc-300 hover:text-white transition-colors">emshuvo@capitalizedmoney.com</a>
+              <a href="https://aimlake.com/contact-us" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 mt-3 btn-primary text-sm md:text-xs px-4 py-2">
                 Aimlake Contact
                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                   <path d="M7 17L17 7M17 7H7M17 7v10" strokeLinecap="round" strokeLinejoin="round" />
@@ -72,10 +72,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="gradient-divider mb-6" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-zinc-600">
+          <p className="text-sm md:text-xs text-zinc-600">
             © {new Date().getFullYear()} Evan Mahmud Shuvo. All rights reserved.
           </p>
-          <p className="text-xs text-zinc-700">
+          <p className="text-sm md:text-xs text-zinc-700">
             Engineered with Next.js · Deployed on Vercel
           </p>
         </div>
