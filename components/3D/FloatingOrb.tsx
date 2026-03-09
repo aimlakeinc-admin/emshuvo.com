@@ -24,16 +24,6 @@ function AnimatedOrb() {
 
     return (
         <group>
-            {/* Outer ambient glow sphere */}
-            <Sphere args={[1.8, 32, 32]} position={[0, 0, 0]}>
-                <meshStandardMaterial
-                    color="#6d28d9"
-                    transparent
-                    opacity={0.04}
-                    side={THREE.FrontSide}
-                />
-            </Sphere>
-
             {/* Pulse ring */}
             <mesh ref={ringRef} scale={[2.2, 2.2, 0.02]}>
                 <torusGeometry args={[1, 0.015, 8, 80]} />

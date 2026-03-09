@@ -57,12 +57,7 @@ export default function Header() {
       <div className="section-container flex items-center justify-between">
         {/* Logo */}
         <Link href="#home" className="group flex items-center gap-3">
-          <div className="relative w-9 h-9">
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 opacity-80 group-hover:opacity-100 transition-opacity blur-[2px]" />
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center overflow-hidden">
-              <Image src="/favicon.png" alt="Mr. Evan Logo" width={36} height={36} className="object-cover" />
-            </div>
-          </div>
+          <Image src="/favicon.png" alt="Mr. Evan Logo" width={36} height={36} className="object-contain" />
           <div className="flex flex-col leading-none">
             <span className="text-lg md:text-base font-bold text-white tracking-tight">Mr. Evan</span>
             <span className="text-[10px] text-zinc-400 font-medium mt-0.5">Cloud · AI · Systems</span>
