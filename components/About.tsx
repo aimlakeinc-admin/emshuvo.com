@@ -21,7 +21,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="about" className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       {/* Decorative orb */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-600/8 rounded-full blur-[120px] pointer-events-none" />
 

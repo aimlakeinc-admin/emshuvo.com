@@ -97,7 +97,7 @@ export default function Expertise() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="expertise" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="expertise" className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-violet-600/8 rounded-full blur-[140px] pointer-events-none translate-y-[-50%]" />
 
       <div className="section-container" ref={ref}>

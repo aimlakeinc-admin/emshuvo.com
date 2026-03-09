@@ -36,7 +36,7 @@ export default function Industries() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section id="industries" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="industries" className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-cyan-600/6 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="section-container" ref={ref}>

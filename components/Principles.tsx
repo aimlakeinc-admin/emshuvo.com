@@ -19,7 +19,7 @@ export default function Principles() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="principles" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="principles" className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] bg-violet-600/6 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="section-container" ref={ref}>

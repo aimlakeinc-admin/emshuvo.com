@@ -41,7 +41,7 @@ export default function Leadership() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="leadership" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="leadership" className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-600/6 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="section-container" ref={ref}>

@@ -35,7 +35,7 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="companies" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="companies" className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-emerald-600/6 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="section-container" ref={ref}>

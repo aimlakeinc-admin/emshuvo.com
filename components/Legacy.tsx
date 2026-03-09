@@ -16,7 +16,7 @@ export default function Legacy() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="legacy" className="relative py-24 md:py-36 overflow-hidden aurora">
+    <section id="legacy" className="relative py-16 md:py-20 lg:py-24 overflow-hidden aurora">
       {/* Big ambient orb */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[800px] h-[800px] rounded-full bg-violet-600/8 blur-[160px]" />
