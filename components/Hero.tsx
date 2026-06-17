@@ -2,11 +2,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import ParticleField from "./3D/ParticleField";
 import { motion } from "framer-motion";
-
-const FloatingOrb = dynamic(() => import("./3D/FloatingOrb"), { ssr: false });
 
 const STATS = [
   { value: "5+", label: "Years Experience" },
@@ -177,19 +175,32 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ── Right: 3D Orb ─── */}
+          {/* ── Right: Portrait ─── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative hidden lg:flex items-center justify-center w-full"
           >
-            <div className="relative w-full max-w-[560px] aspect-square">
-              {/* Glow rings */}
-              <div className="absolute inset-8 rounded-full bg-violet-600/10 blur-2xl animate-pulse-ring" />
-              <div className="absolute inset-0 rounded-full bg-blue-600/5 blur-3xl" />
-              <FloatingOrb />
-            </div>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full max-w-[420px] aspect-[3/4]"
+            >
+              <div className="absolute inset-0 rounded-3xl bg-violet-600/5 blur-3xl" />
+              <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/5">
+                <Image
+                  src="/images/evan-hero.png"
+                  alt="Evan Mahmud Shuvo"
+                  fill
+                  priority
+                  className="object-cover object-top opacity-70 saturate-[0.85] brightness-[0.88]"
+                  sizes="(min-width: 1024px) 420px, 0px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-[#050508]/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050508]/40 via-transparent to-[#050508]/40" />
+              </div>
+            </motion.div>
 
             {/* Floating info chip — top left */}
             <motion.div
