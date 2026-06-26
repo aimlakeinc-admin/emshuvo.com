@@ -34,6 +34,16 @@ const companies = [
     glowColor: "rgba(244, 63, 94, 0.25)",
     tag: "Automotive AI · Upcoming",
   },
+  {
+    name: "Metior Pro",
+    role: "CTO · Chief Business Growth Officer",
+    description: "AI estimating and quoting platform for Canadian contractors — unified estimates, quotes, invoicing, customer management, and AI-powered blueprint takeoffs in one place.",
+    email: "emshuvo@metior.pro",
+    website: "https://www.metior.pro",
+    gradient: "from-sky-600 to-orange-500",
+    glowColor: "rgba(14, 165, 233, 0.25)",
+    tag: "Construction Tech · AI",
+  },
 ];
 
 export default function Leadership() {
@@ -64,7 +74,7 @@ export default function Leadership() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {companies.map((company, i) => (
             <motion.div
               key={i}

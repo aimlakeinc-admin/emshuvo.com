@@ -28,6 +28,14 @@ const companies = [
     website: "https://www.carcare24x7.com",
     gradient: "from-rose-600 to-amber-500",
   },
+  {
+    name: "Metior Pro",
+    role: "CTO · CBGO",
+    description: "AI estimating & quoting for Canadian contractors — estimates, quotes, invoicing, CRM, and AI blueprint takeoffs in one platform.",
+    industries: ["Construction", "SaaS", "AI", "Contracting"],
+    website: "https://www.metior.pro",
+    gradient: "from-sky-600 to-orange-500",
+  },
 ];
 
 export default function Projects() {
@@ -58,7 +66,7 @@ export default function Projects() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {companies.map((c, i) => (
             <motion.a
               key={i}
