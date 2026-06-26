@@ -44,6 +44,26 @@ const companies = [
     glowColor: "rgba(14, 165, 233, 0.25)",
     tag: "Construction Tech · AI",
   },
+  {
+    name: "AimlakeMS Inc.",
+    role: "CEO & Founder",
+    description: "The Aimlake Group's managed services division — IT infrastructure, cybersecurity, custom signage, print production, and hardware deployment for businesses across the GTA.",
+    email: "ams@aimlake.com",
+    website: "https://ms.aimlake.com",
+    gradient: "from-indigo-600 to-sky-500",
+    glowColor: "rgba(79, 70, 229, 0.25)",
+    tag: "Managed Services",
+  },
+  {
+    name: "Aimlake Production",
+    role: "CEO & Founder",
+    description: "Strategic photography and videography studio delivering business-grade visual content, 4K cinematic video, and AI production across 21+ cities in the GTA.",
+    email: "production@aimlake.com",
+    website: "https://production.aimlake.com",
+    gradient: "from-fuchsia-600 to-pink-500",
+    glowColor: "rgba(217, 70, 239, 0.25)",
+    tag: "Media Production",
+  },
 ];
 
 export default function Leadership() {
@@ -74,7 +94,7 @@ export default function Leadership() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {companies.map((company, i) => (
             <motion.div
               key={i}

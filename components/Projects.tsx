@@ -36,6 +36,22 @@ const companies = [
     website: "https://www.metior.pro",
     gradient: "from-sky-600 to-orange-500",
   },
+  {
+    name: "AimlakeMS Inc.",
+    role: "CEO & Founder",
+    description: "Aimlake's managed services arm: IT infrastructure, cybersecurity, signage, print, and hardware deployment across the GTA.",
+    industries: ["IT", "Signage", "Print", "Hardware"],
+    website: "https://ms.aimlake.com",
+    gradient: "from-indigo-600 to-sky-500",
+  },
+  {
+    name: "Aimlake Production",
+    role: "CEO & Founder",
+    description: "Business-grade photography & videography: branding, real estate, product shoots, event coverage, and 4K cinematic content.",
+    industries: ["Photography", "Videography", "Media", "Branding"],
+    website: "https://production.aimlake.com",
+    gradient: "from-fuchsia-600 to-pink-500",
+  },
 ];
 
 export default function Projects() {
@@ -66,7 +82,7 @@ export default function Projects() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {companies.map((c, i) => (
             <motion.a
               key={i}

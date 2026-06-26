@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     "Aimlake Inc",
     "Capitalizedmoney Inc",
     "Metior Pro",
+    "AimlakeMS Inc",
+    "Aimlake Production",
     "Evan Mahmud Shuvo"
   ],
   authors: [{ name: "Evan Mahmud Shuvo" }],
@@ -123,6 +125,18 @@ export default function RootLayout({
                   name: "Metior Pro",
                   url: "https://www.metior.pro",
                   jobTitle: "CTO · Chief Business Growth Officer"
+                },
+                {
+                  "@type": "Organization",
+                  name: "AimlakeMS Inc.",
+                  url: "https://ms.aimlake.com",
+                  jobTitle: "CEO & Founder"
+                },
+                {
+                  "@type": "Organization",
+                  name: "Aimlake Production",
+                  url: "https://production.aimlake.com",
+                  jobTitle: "CEO & Founder"
                 }
               ],
               email: ["emshuvo@aimlake.com", "emshuvo@capitalizedmoney.com", "emshuvo@metior.pro"],
